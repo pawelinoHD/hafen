@@ -11,6 +11,16 @@ Umbrel selbst gibt es nicht für Apple Silicon. Hafen läuft deshalb auf zwei Ar
 | Adresse | `http://<dein-mac>.local:8420` | `http://hafen.local` |
 | Home Assistant | Geräte-Erkennung eingeschränkt | voll, Host-Netzwerk möglich |
 
+## Neu in Hafen 2.0
+
+- **Backups**: Einstellungen, App-Daten und Speicher als `.tar.gz`, nach Zeitplan und mit Aufbewahrung, Wiederherstellen per Klick
+- **Mitteilungen**: Glocke oben rechts. Meldet Installationen, abgestürzte Apps, vollen Speicher und knappen RAM, auf Wunsch als Push aufs Handy (ntfy)
+- **Eigene Apps**: im Store über „Eigene App“, per Formular oder aus einem `docker run`-Befehl
+- **Freigabe-Links**: Dateien und Ordner per Link teilen, mit Ablaufdatum, Passwort und Download-Limit
+- **Papierkorb**: Gelöschtes bleibt 30 Tage wiederherstellbar
+- **Verlauf**: CPU, RAM und Netzwerk über 1 Stunde, 24 Stunden und 7 Tage, fürs System und pro App
+- **Erweiterungen**: Neue Funktionen sind eigene Module in `lib/features/` und `public/features/`, siehe [FEATURES.md](FEATURES.md)
+
 ## Installation auf dem Mac
 
 ```bash
@@ -44,6 +54,8 @@ Alle Images gibt es für arm64. Startpasswörter erzeugt Hafen selbst und zeigt 
 ├── config.json        Anmeldung, Einstellungen (Passwort nur als scrypt-Hash)
 ├── hafen.log          Server-Protokoll
 ├── apps/<id>/         docker-compose.yml + .env der installierten App
+├── eigene-apps/<id>/  selbst angelegte Store-Apps
+├── mitteilungen.json, freigaben.json, verlauf.json
 ├── data/<id>/         Daten der App (bleiben beim Deinstallieren, außer du wählst „Daten löschen“)
 └── storage/           Dein Speicher: Downloads, Medien, Musik, Fotos, Dokumente, Hörbücher
 ```

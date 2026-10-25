@@ -83,6 +83,7 @@ Hafen.addSettingsItem((sys) => ({ tab: 'system', ic: 'info', title: 'Beispiel', 
 | `cd(pfad)`, `reloadFiles()` | Dateien-Fenster: Ordner öffnen / neu laden |
 | `poll()` | Apps und Systemwerte sofort neu abfragen |
 | `control(app, aktion)`, `install(app)`, `appUrl(app)`, `isBusy(app)` | App-Aktionen |
+| `connectHosts()` | Adressen, unter denen andere Geräte Hafen erreichen (statt `localhost`) |
 | `css(text)` | eigenes CSS einfügen (Klassen mit Präfix der Erweiterung, z. B. `.bk-…`) |
 
 ### Andockpunkte

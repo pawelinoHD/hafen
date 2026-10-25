@@ -1914,7 +1914,7 @@ window.Hafen = {
   openMenu, closeMenu, fmtBytes, fmtDate, relTime, de, pct,
   // Zustand und Navigation
   state, update, go, route, cd: (p) => cd(p), reloadFiles: () => loadFiles(), poll: () => poll(),
-  control: (app, action) => control(app, action), install: (app) => install(app), appUrl, isBusy,
+  control: (app, action) => control(app, action), install: (app) => install(app), appUrl, isBusy, connectHosts,
   // Ein Fenster: key, { title, dockSvg (52×52-SVG-Text), render(args) → Element, onOpen?(), hidden? }
   // hidden: true = nicht im Dock, nur über go('#/key') oder die Suche erreichbar
   registerWindow(key, { title, dockSvg, render, onOpen, hidden = false }) {
