@@ -1,0 +1,11 @@
+services:
+  kavita:
+    image: jvmilazz0/kavita:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5000"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/kavita/config
+      - ${HAFEN_STORAGE}/Bücher:/books

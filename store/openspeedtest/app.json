@@ -1,0 +1,9 @@
+{
+  "name": "OpenSpeedTest",
+  "tagline": "WLAN-Geschwindigkeit messen",
+  "category": "Netzwerk",
+  "port": 3005,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openspeedtest.png",
+  "website": "https://openspeedtest.com",
+  "description": "Misst, wie schnell ein Gerät im Heimnetz mit deinem Mac verbunden ist – ideal, um WLAN-Funklöcher zu finden. Es geht nichts ins Internet."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "qBittorrent",
+  "tagline": "Download-Manager",
+  "category": "Downloads",
+  "port": 8088,
+  "extraPorts": [
+    6881
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qbittorrent.png",
+  "website": "https://www.qbittorrent.org",
+  "description": "Torrent-Client mit Weboberfläche, lädt nach „Downloads“. Benutzer und Startpasswort zeigt Hafen unter „Zugangsdaten“ – leg danach in qBittorrent ein eigenes Passwort fest.",
+  "storageDirs": [
+    "Downloads"
+  ],
+  "logCredentials": {
+    "service": "qbittorrent",
+    "user": "admin",
+    "pattern": "temporary password is provided for this session: (\\S+)",
+    "confFile": "qBittorrent/qBittorrent.conf",
+    "setMarker": "Password_PBKDF2"
+  }
+}

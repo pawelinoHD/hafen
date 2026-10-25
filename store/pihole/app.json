@@ -1,0 +1,16 @@
+{
+  "name": "Pi-hole",
+  "tagline": "Werbeblocker fürs ganze Netz",
+  "category": "Netzwerk",
+  "port": 8053,
+  "path": "/admin",
+  "extraPorts": [
+    53
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pi-hole.png",
+  "website": "https://pi-hole.net",
+  "description": "Blockiert Werbung und Tracker für alle Geräte im WLAN. Trage danach die IP deines Macs als DNS-Server im Router ein. Port 53 muss auf dem Mac frei sein.",
+  "credentials": {
+    "Passwort": "$APP_PASSWORD"
+  }
+}

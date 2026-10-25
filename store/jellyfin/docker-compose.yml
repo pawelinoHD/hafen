@@ -1,0 +1,12 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8096"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+      - ${APP_DATA_DIR}/cache:/cache
+      - ${HAFEN_STORAGE}/Medien:/media

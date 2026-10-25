@@ -1,0 +1,9 @@
+{
+  "name": "Vikunja",
+  "tagline": "Aufgaben & Projekte",
+  "category": "Produktivität",
+  "port": 3456,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vikunja.png",
+  "website": "https://vikunja.io",
+  "description": "To-do-Listen, Kanban-Boards und Gantt-Diagramme für dich oder die ganze Familie. Beim ersten Öffnen legst du ein Konto an."
+}

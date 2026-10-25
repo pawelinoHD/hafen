@@ -1,0 +1,13 @@
+{
+  "name": "Grocy",
+  "tagline": "Vorrat & Haushalt im Griff",
+  "category": "Zuhause",
+  "port": 9283,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grocy.png",
+  "website": "https://grocy.info",
+  "description": "Behält Vorräte, Mindesthaltbarkeit, Einkaufslisten und Hausarbeiten im Blick. Ändere nach dem ersten Login das Startpasswort.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "admin"
+  }
+}

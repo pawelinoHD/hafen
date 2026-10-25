@@ -1,0 +1,12 @@
+services:
+  bareiron:
+    # Wird beim Installieren lokal aus source/ gebaut (dauert etwa eine Minute)
+    build: .
+    pull_policy: build
+    restart: unless-stopped
+    # bareiron speichert beim Beenden (SIGTERM) Spieler und geänderte Chunks – dafür Zeit lassen
+    stop_grace_period: 30s
+    ports:
+      - "${APP_PORT}:25565"
+    volumes:
+      - ${APP_DATA_DIR}:/data

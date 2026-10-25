@@ -1,0 +1,9 @@
+{
+  "name": "IT-Tools",
+  "tagline": "Werkzeugkasten für Technik",
+  "category": "Entwicklung",
+  "port": 8091,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/it-tools.png",
+  "website": "https://it-tools.tech",
+  "description": "Über 80 kleine Helfer: Hash-Rechner, JSON-Formatierer, QR-Codes, UUIDs, Base64, Cron-Ausdrücke und vieles mehr."
+}

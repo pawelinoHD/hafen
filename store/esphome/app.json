@@ -1,0 +1,9 @@
+{
+  "name": "ESPHome",
+  "tagline": "Eigene Smart-Home-Sensoren",
+  "category": "Smart Home",
+  "port": 6052,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/esphome.png",
+  "website": "https://esphome.io",
+  "description": "Macht aus günstigen ESP32-Platinen Temperatursensoren, Schalter oder LED-Steuerungen – per Konfigurationsdatei statt Programmieren. Arbeitet eng mit Home Assistant zusammen. Das erste Aufspielen geht am einfachsten per USB über web.esphome.io."
+}

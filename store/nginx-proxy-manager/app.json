@@ -1,0 +1,13 @@
+{
+  "name": "Nginx Proxy Manager",
+  "tagline": "HTTPS für deine Apps",
+  "category": "Netzwerk",
+  "port": 8181,
+  "extraPorts": [
+    80,
+    443
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nginx-proxy-manager.png",
+  "website": "https://nginxproxymanager.com",
+  "description": "Stellt Apps unter eigenen Namen und mit HTTPS-Zertifikat bereit – z. B. wenn Vaultwarden von außen erreichbar sein soll. Belegt die Ports 80 und 443. Fragt beim ersten Öffnen nach einem Admin-Konto; ältere Fassungen nutzen admin@example.com / changeme."
+}

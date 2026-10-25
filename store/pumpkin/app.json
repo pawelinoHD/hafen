@@ -1,0 +1,11 @@
+{
+  "name": "Pumpkin",
+  "tagline": "Schneller Minecraft-Server in Rust",
+  "category": "Spiele",
+  "port": 25567,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/minecraft.png",
+  "website": "https://github.com/Pumpkin-MC/Pumpkin",
+  "connectHint": "In Minecraft (Java Edition, aktuelle Version): Mehrspieler → Server hinzufügen → diese Adresse.",
+  "description": "Ein komplett neu in Rust geschriebener Minecraft-Server – startet in Sekunden und braucht nur einen Bruchteil des Arbeitsspeichers eines normalen Servers. Unterstützt die aktuelle Minecraft-Version. Noch in Entwicklung: Welt laden und speichern, Inventar, Hunger, Erfahrung und Chat funktionieren; Weltgenerierung, Kampf, Redstone und Mobs sind noch unvollständig. Kein Ersatz für einen Survival-Server, aber spannend zum Ausprobieren. Einstellungen (z. B. Spielmodus, Spielerzahl) liegen nach dem ersten Start in ~/hafen-daten/data/pumpkin/config/ – nach dem Ändern die App neu starten. Läuft parallel zu den anderen Minecraft-Servern."
+}

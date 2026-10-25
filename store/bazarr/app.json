@@ -1,0 +1,13 @@
+{
+  "name": "Bazarr",
+  "tagline": "Untertitel automatisch",
+  "category": "Medien",
+  "port": 6767,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bazarr.png",
+  "website": "https://www.bazarr.media",
+  "description": "Sucht passende Untertitel – auch deutsche – für alle Filme und Serien, die Sonarr und Radarr verwalten, und legt sie gleich daneben.",
+  "storageDirs": [
+    "Medien/Filme",
+    "Medien/Serien"
+  ]
+}

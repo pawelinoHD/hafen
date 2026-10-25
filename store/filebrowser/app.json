@@ -1,0 +1,15 @@
+{
+  "name": "File Browser",
+  "tagline": "Dateien teilen per Link",
+  "category": "Dateien",
+  "port": 8085,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/filebrowser.png",
+  "website": "https://filebrowser.org",
+  "description": "Ein schlanker Dateimanager für deinen Hafen-Speicher – mit Freigabe-Links, die du an andere schicken kannst, Vorschau und Texteditor.",
+  "logCredentials": {
+    "service": "filebrowser",
+    "user": "admin",
+    "pattern": "randomly generated password: (\\S+)",
+    "hint": "Startpasswort aus dem ersten Start. Hast du es in File Browser schon geändert, gilt dein eigenes."
+  }
+}

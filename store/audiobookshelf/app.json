@@ -1,0 +1,13 @@
+{
+  "name": "Audiobookshelf",
+  "tagline": "Hörbücher & Podcasts",
+  "category": "Medien",
+  "port": 13378,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/audiobookshelf.png",
+  "website": "https://www.audiobookshelf.org",
+  "description": "Hörbuch- und Podcast-Server mit Fortschritts-Sync und Apps für iOS und Android. Hörbücher kommen in den Ordner „Hörbücher“.",
+  "storageDirs": [
+    "Hörbücher",
+    "Podcasts"
+  ]
+}

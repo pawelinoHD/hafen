@@ -1,0 +1,15 @@
+{
+  "name": "Duplicati",
+  "tagline": "Verschlüsselte Backups",
+  "category": "Sicherheit",
+  "port": 8200,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/duplicati.png",
+  "website": "https://duplicati.com",
+  "description": "Sichert deinen Hafen-Speicher verschlüsselt und nach Zeitplan – auf eine externe Platte, einen anderen Rechner oder in die Cloud (z. B. OneDrive, Google Drive, S3). Der Speicher liegt im Container unter /source, lokale Sicherungen unter /backups.",
+  "storageDirs": [
+    "Backups"
+  ],
+  "credentials": {
+    "Passwort": "$APP_PASSWORD"
+  }
+}

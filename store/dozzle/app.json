@@ -1,0 +1,9 @@
+{
+  "name": "Dozzle",
+  "tagline": "Live-Logs aller Container",
+  "category": "Entwicklung",
+  "port": 9999,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/dozzle.png",
+  "website": "https://dozzle.dev",
+  "description": "Zeigt die Protokolle aller Docker-Container live im Browser – praktisch, wenn eine App nicht startet. Hat nur Lesezugriff auf Docker."
+}

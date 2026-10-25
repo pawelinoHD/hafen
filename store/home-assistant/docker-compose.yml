@@ -1,0 +1,10 @@
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8123"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/config:/config

@@ -1,0 +1,9 @@
+{
+  "name": "Flowise",
+  "tagline": "KI-Abläufe zusammenklicken",
+  "category": "KI",
+  "port": 3030,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flowise.png",
+  "website": "https://flowiseai.com",
+  "description": "Baut Chatbots und KI-Agenten aus Bausteinen – etwa einen Bot, der deine Dokumente kennt. Mit Ollama auf dem Mac verbindest du dich über http://host.docker.internal:11434."
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Home Assistant",
+  "tagline": "Smart Home ohne Cloud",
+  "category": "Smart Home",
+  "port": 8123,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/home-assistant.png",
+  "website": "https://www.home-assistant.io",
+  "description": "Steuert Lampen, Steckdosen, Heizung und tausende Geräte lokal. Hinweis für den Mac: Docker hat dort kein Host-Netzwerk, die automatische Geräte-Erkennung (mDNS/UPnP) findet deshalb nicht alles – Geräte lassen sich per IP hinzufügen."
+}

@@ -1,0 +1,9 @@
+{
+  "name": "draw.io",
+  "tagline": "Diagramme zeichnen",
+  "category": "Werkzeuge",
+  "port": 8098,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/draw-io.png",
+  "website": "https://www.drawio.com",
+  "description": "Flussdiagramme, Netzwerkpläne, Grundrisse und Mindmaps im Browser – komplett lokal, ohne Konto."
+}

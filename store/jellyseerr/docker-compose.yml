@@ -1,0 +1,12 @@
+services:
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5055"
+    environment:
+      TZ: ${TZ}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${APP_DATA_DIR}:/app/config

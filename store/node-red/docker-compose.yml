@@ -1,0 +1,10 @@
+services:
+  node-red:
+    image: nodered/node-red:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:1880"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/data

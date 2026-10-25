@@ -1,0 +1,13 @@
+{
+  "name": "Sonarr",
+  "tagline": "Serien automatisch verwalten",
+  "category": "Downloads",
+  "port": 8989,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sonarr.png",
+  "website": "https://sonarr.tv",
+  "description": "Beobachtet deine Lieblingsserien, holt neue Folgen über qBittorrent und sortiert sie nach „Medien/Serien“. Die Downloads liegen unter /downloads, die Serien unter /tv.",
+  "storageDirs": [
+    "Medien/Serien",
+    "Downloads"
+  ]
+}

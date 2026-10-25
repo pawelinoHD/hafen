@@ -1,0 +1,10 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    restart: unless-stopped
+    user: "${PUID}:${PGID}"
+    ports:
+      - "${APP_PORT}:4533"
+    volumes:
+      - ${APP_DATA_DIR}:/data
+      - ${HAFEN_STORAGE}/Musik:/music:ro

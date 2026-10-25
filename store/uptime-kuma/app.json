@@ -1,0 +1,9 @@
+{
+  "name": "Uptime Kuma",
+  "tagline": "Überwacht deine Dienste",
+  "category": "Werkzeuge",
+  "port": 3001,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/uptime-kuma.png",
+  "website": "https://uptime.kuma.pet",
+  "description": "Prüft Webseiten, Server und Apps rund um die Uhr und meldet sich, wenn etwas ausfällt."
+}

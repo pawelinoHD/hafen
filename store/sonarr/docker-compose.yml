@@ -1,0 +1,16 @@
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8989"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Medien/Serien:/tv
+      - ${HAFEN_STORAGE}/Downloads:/downloads

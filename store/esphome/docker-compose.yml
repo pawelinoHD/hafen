@@ -1,0 +1,10 @@
+services:
+  esphome:
+    image: ghcr.io/esphome/esphome:stable
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:6052"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/config

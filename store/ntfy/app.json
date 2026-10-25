@@ -1,0 +1,9 @@
+{
+  "name": "ntfy",
+  "tagline": "Push-Nachrichten aufs Handy",
+  "category": "Werkzeuge",
+  "port": 8093,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ntfy.png",
+  "website": "https://ntfy.sh",
+  "description": "Schickt Benachrichtigungen per einfachem HTTP-Aufruf an dein Handy – etwa wenn ein Download fertig ist. Die ntfy-App gibt es für iOS und Android."
+}

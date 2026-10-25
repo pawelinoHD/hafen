@@ -1,0 +1,16 @@
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8686"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Musik:/music
+      - ${HAFEN_STORAGE}/Downloads:/downloads

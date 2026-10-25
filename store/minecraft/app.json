@@ -1,0 +1,94 @@
+{
+  "name": "Minecraft-Server",
+  "tagline": "Eigene Welt für Freunde",
+  "category": "Spiele",
+  "port": 25565,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/minecraft.png",
+  "website": "https://docker-minecraft-server.readthedocs.io",
+  "connectHint": "In Minecraft (Java Edition): Mehrspieler → Server hinzufügen → diese Adresse eintragen.",
+  "description": "Ein Minecraft-Server (Java Edition) für dich und deine Freunde im Heimnetz – Vanilla, Paper (schneller, für Plugins) oder Fabric (für Mods). Hat keine Weboberfläche: Du verbindest dich direkt aus dem Spiel. Mit der Installation akzeptierst du die Minecraft-EULA (aka.ms/MinecraftEULA). Von unterwegs geht es über Tailscale.",
+  "settings": [
+    {
+      "key": "MC_TYPE",
+      "label": "Server-Art",
+      "required": true,
+      "default": "PAPER",
+      "options": [
+        {
+          "value": "PAPER",
+          "label": "Paper (empfohlen, schnell, Plugins)"
+        },
+        {
+          "value": "VANILLA",
+          "label": "Vanilla (original)"
+        },
+        {
+          "value": "FABRIC",
+          "label": "Fabric (für Mods)"
+        }
+      ]
+    },
+    {
+      "key": "MC_VERSION",
+      "label": "Minecraft-Version",
+      "default": "LATEST",
+      "placeholder": "LATEST oder z. B. 1.21.1",
+      "help": "LATEST nimmt die neueste Version. Für Mods die Version eintragen, zu der deine Mods passen."
+    },
+    {
+      "key": "MC_MEMORY",
+      "label": "Arbeitsspeicher",
+      "required": true,
+      "default": "2G",
+      "options": [
+        {
+          "value": "1G",
+          "label": "1 GB (1–2 Spieler)"
+        },
+        {
+          "value": "2G",
+          "label": "2 GB (bis ca. 5 Spieler)"
+        },
+        {
+          "value": "3G",
+          "label": "3 GB"
+        },
+        {
+          "value": "4G",
+          "label": "4 GB (viele Spieler oder Mods)"
+        }
+      ],
+      "help": "Zieht der Docker-VM entsprechend RAM ab – auf einem Mac mit 8 GB lieber 1–2 GB."
+    },
+    {
+      "key": "MC_DIFFICULTY",
+      "label": "Schwierigkeit",
+      "required": true,
+      "default": "normal",
+      "options": [
+        {
+          "value": "peaceful",
+          "label": "Friedlich"
+        },
+        {
+          "value": "easy",
+          "label": "Einfach"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "hard",
+          "label": "Schwer"
+        }
+      ]
+    },
+    {
+      "key": "MC_MOTD",
+      "label": "Servername in der Liste",
+      "default": "Hafen-Server"
+    }
+  ]
+}

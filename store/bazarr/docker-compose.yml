@@ -1,0 +1,16 @@
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:6767"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Medien/Filme:/movies
+      - ${HAFEN_STORAGE}/Medien/Serien:/tv

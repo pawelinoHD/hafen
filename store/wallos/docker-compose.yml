@@ -1,0 +1,11 @@
+services:
+  wallos:
+    image: bellamy/wallos:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:80"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/db:/var/www/html/db
+      - ${APP_DATA_DIR}/logos:/var/www/html/images/uploads/logos

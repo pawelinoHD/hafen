@@ -1,0 +1,16 @@
+{
+  "name": "Paperless-ngx",
+  "tagline": "Papierkram digital & durchsuchbar",
+  "category": "Produktivität",
+  "port": 8010,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/paperless-ngx.png",
+  "website": "https://docs.paperless-ngx.com",
+  "description": "Scannt, erkennt (deutsche OCR) und archiviert Dokumente. Alles, was du in „Dokumente/Eingang“ legst, wird automatisch importiert.",
+  "storageDirs": [
+    "Dokumente/Eingang"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

@@ -1,0 +1,16 @@
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8200"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      SETTINGS_ENCRYPTION_KEY: ${APP_SECRET}
+      DUPLICATI__WEBSERVICE_PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Backups:/backups
+      - ${HAFEN_STORAGE}:/source

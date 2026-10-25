@@ -1,0 +1,9 @@
+{
+  "name": "Memos",
+  "tagline": "Gedanken schnell notieren",
+  "category": "Produktivität",
+  "port": 5230,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/memos.png",
+  "website": "https://usememos.com",
+  "description": "Ein privater Kurznotiz-Feed wie ein eigenes Twitter – mit Markdown, Schlagwörtern und Bildern. Wer sich zuerst registriert, wird Admin."
+}

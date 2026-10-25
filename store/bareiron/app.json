@@ -1,0 +1,11 @@
+{
+  "name": "bareiron",
+  "tagline": "Minecraft-Server mit wenig RAM",
+  "category": "Spiele",
+  "port": 25566,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/minecraft.png",
+  "website": "https://github.com/p2r3/bareiron",
+  "connectHint": "Im Minecraft-Launcher die Version 1.21.8 (Vanilla) wählen – neuere Versionen und Fabric können sich nicht verbinden. Dann Mehrspieler → Server hinzufügen → diese Adresse.",
+  "description": "Ein winziger Minecraft-Server in C – hier in deiner erweiterten Fassung: Sichtweite 6 (13×13 Chunks), jeder Chunk wird gespeichert (kein Limit mehr für Blockänderungen), 32 Spielerplätze, 64 Mobs und 4 Ticks pro Sekunde. Braucht trotzdem höchstens etwa 160 MB Arbeitsspeicher. Survival mit Höhlen, Biomen, Mobs und Truhen, vereinfacht und nicht originalgetreu. Nur für Minecraft 1.21.8 (Vanilla-Client). Wird beim Installieren aus dem Quellcode gebaut (etwa eine Minute). Die Welt liegt in ~/hafen-daten/data/bareiron (world.bin und world/chunks); eine Welt der Originalfassung wird beim ersten Start übernommen."
+}

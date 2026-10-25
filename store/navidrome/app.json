@@ -1,0 +1,12 @@
+{
+  "name": "Navidrome",
+  "tagline": "Deine Musik als Stream",
+  "category": "Medien",
+  "port": 4533,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/navidrome.png",
+  "website": "https://www.navidrome.org",
+  "description": "Spotify-artiger Musik-Server für deine eigene Sammlung im Ordner „Musik“. Funktioniert mit allen Subsonic-Apps (z. B. play:Sub, Symfonium).",
+  "storageDirs": [
+    "Musik"
+  ]
+}

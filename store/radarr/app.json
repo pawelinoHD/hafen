@@ -1,0 +1,13 @@
+{
+  "name": "Radarr",
+  "tagline": "Filme automatisch verwalten",
+  "category": "Downloads",
+  "port": 7878,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/radarr.png",
+  "website": "https://radarr.video",
+  "description": "Wie Sonarr, nur für Filme: lädt gewünschte Filme über qBittorrent und sortiert sie nach „Medien/Filme“ (im Container /movies).",
+  "storageDirs": [
+    "Medien/Filme",
+    "Downloads"
+  ]
+}

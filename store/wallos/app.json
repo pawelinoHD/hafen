@@ -1,0 +1,9 @@
+{
+  "name": "Wallos",
+  "tagline": "Abos und Verträge im Blick",
+  "category": "Finanzen",
+  "port": 8282,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wallos.png",
+  "website": "https://wallosapp.com",
+  "description": "Sammelt alle Abos – Netflix, Spotify, Handyvertrag, Versicherungen – und zeigt, was dich jeden Monat kostet. Erinnert vor der nächsten Abbuchung."
+}

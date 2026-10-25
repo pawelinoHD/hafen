@@ -1,0 +1,8 @@
+services:
+  actual:
+    image: actualbudget/actual-server:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5006"
+    volumes:
+      - ${APP_DATA_DIR}:/data

@@ -1,0 +1,9 @@
+{
+  "name": "FreshRSS",
+  "tagline": "Alle Nachrichten an einem Ort",
+  "category": "Lesen",
+  "port": 8070,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/freshrss.png",
+  "website": "https://freshrss.org",
+  "description": "Ein schneller RSS-Reader für Blogs, Nachrichtenseiten und YouTube-Kanäle. Beim ersten Öffnen führt dich ein Assistent durch die Einrichtung – wähle dort SQLite als Datenbank."
+}

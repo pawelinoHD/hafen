@@ -1,0 +1,65 @@
+#cloud-config
+# Ersteinrichtung der Hafen-VM (Debian 13 arm64). Wird von make-vm.sh ins Seed-ISO gepackt.
+hostname: hafen
+manage_etc_hosts: true
+timezone: Europe/Berlin
+locale: de_DE.UTF-8
+keyboard:
+  layout: de
+
+users:
+  - name: hafen
+    gecos: Hafen
+    # „docker“ gibt es erst nach der Paketinstallation – wird unten per usermod ergänzt
+    groups: [sudo]
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+    # Konsolen-Passwort „hafen“ – bitte nach dem ersten Login mit `passwd` ändern
+    plain_text_passwd: hafen
+    # SSH_KEY_PLATZHALTER
+
+package_update: true
+package_upgrade: true
+packages:
+  - docker.io
+  - docker-compose
+  - nodejs
+  - avahi-daemon
+  - curl
+  - qemu-guest-agent
+  - spice-vdagent
+
+write_files:
+  - path: /etc/systemd/system/hafen.service
+    content: |
+      [Unit]
+      Description=Hafen Heimserver
+      After=network-online.target docker.service
+      Wants=network-online.target docker.service
+
+      [Service]
+      User=hafen
+      Environment=HAFEN_HOME=/home/hafen/hafen-daten
+      Environment=HAFEN_PORT=80
+      AmbientCapabilities=CAP_NET_BIND_SERVICE
+      WorkingDirectory=/opt/hafen
+      ExecStart=/usr/bin/node /opt/hafen/server.js
+      Restart=always
+      RestartSec=5
+
+      [Install]
+      WantedBy=multi-user.target
+
+runcmd:
+  - mkdir -p /opt/hafen /mnt/seed
+  - mount -o ro LABEL=cidata /mnt/seed || mount -o ro LABEL=CIDATA /mnt/seed
+  - tar -xzf /mnt/seed/hafen.tar.gz -C /opt/hafen
+  - umount /mnt/seed
+  - chown -R hafen:hafen /opt/hafen
+  - usermod -aG docker hafen
+  - systemctl enable --now docker avahi-daemon qemu-guest-agent
+  - systemctl daemon-reload
+  - systemctl enable --now hafen
+
+final_message: "Hafen ist bereit: http://hafen.local"

@@ -1,0 +1,12 @@
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5000"
+    environment:
+      LT_LOAD_ONLY: "de,en,fr,es,it,pl,tr"
+    volumes:
+      - models:/home/libretranslate/.local
+volumes:
+  models:

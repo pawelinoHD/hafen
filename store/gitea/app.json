@@ -1,0 +1,12 @@
+{
+  "name": "Gitea",
+  "tagline": "Dein eigenes GitHub",
+  "category": "Entwicklung",
+  "port": 3002,
+  "extraPorts": [
+    2222
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gitea.png",
+  "website": "https://about.gitea.com",
+  "description": "Git-Server mit Weboberfläche, Issues und Pull Requests. SSH läuft auf Port 2222. Im Einrichtungsassistenten einfach „SQLite3“ als Datenbank wählen."
+}

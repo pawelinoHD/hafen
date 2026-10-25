@@ -1,0 +1,13 @@
+{
+  "name": "hafen",
+  "version": "1.0.0",
+  "description": "Hafen – ein Heimserver-OS im Stil von Umbrel für Apple-Silicon-Macs und Linux",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "demo": "node server.js --demo"
+  },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}

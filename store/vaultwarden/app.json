@@ -1,0 +1,9 @@
+{
+  "name": "Vaultwarden",
+  "tagline": "Passwort-Tresor (Bitwarden)",
+  "category": "Sicherheit",
+  "port": 8222,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/vaultwarden.png",
+  "website": "https://github.com/dani-garcia/vaultwarden",
+  "description": "Ein schlanker Bitwarden-kompatibler Server. Die Bitwarden-Apps verbinden sich direkt damit. Achtung: Der Web-Tresor braucht HTTPS – auf dem Mac selbst klappt http://localhost, von anderen Geräten aus nur über einen HTTPS-Proxy oder Tailscale."
+}

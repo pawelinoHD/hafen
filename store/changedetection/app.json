@@ -1,0 +1,9 @@
+{
+  "name": "changedetection.io",
+  "tagline": "Webseiten auf Änderungen prüfen",
+  "category": "Werkzeuge",
+  "port": 5010,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/changedetection.png",
+  "website": "https://changedetection.io",
+  "description": "Meldet sich, wenn sich eine Webseite ändert – etwa ein Preis fällt oder ein Produkt wieder verfügbar ist. Passt gut zusammen mit ntfy."
+}

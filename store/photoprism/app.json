@@ -1,0 +1,16 @@
+{
+  "name": "PhotoPrism",
+  "tagline": "Fotos mit KI-Suche",
+  "category": "Fotos",
+  "port": 2342,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/photoprism.png",
+  "website": "https://www.photoprism.app",
+  "description": "Fotoverwaltung mit Gesichts- und Objekterkennung, Karten und Alben. Liest den Ordner „Fotos“. Nach dem Ablegen neuer Bilder unter „Bibliothek → Indexieren“ starten.",
+  "storageDirs": [
+    "Fotos"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

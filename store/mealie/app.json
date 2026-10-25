@@ -1,0 +1,13 @@
+{
+  "name": "Mealie",
+  "tagline": "Rezepte & Wochenplan",
+  "category": "Zuhause",
+  "port": 9925,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mealie.png",
+  "website": "https://mealie.io",
+  "description": "Rezepte per Link von jeder Webseite importieren, Wochenpläne erstellen und Einkaufslisten daraus machen. Melde dich mit den Startdaten an und ändere sie danach in deinem Profil.",
+  "credentials": {
+    "E-Mail": "changeme@example.com",
+    "Passwort": "MyPassword"
+  }
+}

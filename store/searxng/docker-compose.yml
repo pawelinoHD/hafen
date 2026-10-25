@@ -1,0 +1,11 @@
+services:
+  searxng:
+    image: searxng/searxng:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8080"
+    environment:
+      SEARXNG_BASE_URL: http://localhost:${APP_PORT}/
+      SEARXNG_SECRET: ${APP_SECRET}
+    volumes:
+      - ${APP_DATA_DIR}:/etc/searxng

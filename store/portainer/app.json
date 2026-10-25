@@ -1,0 +1,9 @@
+{
+  "name": "Portainer",
+  "tagline": "Docker für Fortgeschrittene",
+  "category": "Entwicklung",
+  "port": 9002,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/portainer.png",
+  "website": "https://www.portainer.io",
+  "description": "Zeigt alle Container, Images, Netzwerke und Volumes und lässt dich eigene Container starten. Wichtig: Leg das Admin-Konto innerhalb von 5 Minuten nach dem Start an, sonst sperrt sich Portainer – dann einfach neu starten."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Jupyter",
+  "tagline": "Python-Notebooks im Browser",
+  "category": "Entwicklung",
+  "port": 8899,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jupyter.png",
+  "website": "https://jupyter.org",
+  "description": "Python ausprobieren, Daten auswerten und Diagramme zeichnen – Zelle für Zelle im Browser. Melde dich mit dem Token unten an.",
+  "credentials": {
+    "Token": "$APP_PASSWORD"
+  }
+}

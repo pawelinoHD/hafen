@@ -1,0 +1,14 @@
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8443"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}:/hafen

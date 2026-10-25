@@ -1,0 +1,12 @@
+{
+  "name": "Kavita",
+  "tagline": "E-Books & Comics lesen",
+  "category": "Lesen",
+  "port": 8095,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kavita.png",
+  "website": "https://www.kavitareader.com",
+  "description": "Liest EPUB, PDF, Comics (CBZ/CBR) und Mangas direkt im Browser. Leg deine Bücher in den Ordner „Bücher“ und füge im Assistenten die Bibliothek /books hinzu.",
+  "storageDirs": [
+    "Bücher"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "code-server",
+  "tagline": "VS Code im Browser",
+  "category": "Entwicklung",
+  "port": 8443,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/code-server.png",
+  "website": "https://coder.com",
+  "description": "Visual Studio Code, erreichbar von jedem Gerät im Netz – auch vom iPad. Dein Hafen-Speicher liegt unter /hafen.",
+  "credentials": {
+    "Passwort": "$APP_PASSWORD"
+  }
+}

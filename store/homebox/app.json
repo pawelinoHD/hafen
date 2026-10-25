@@ -1,0 +1,9 @@
+{
+  "name": "Homebox",
+  "tagline": "Inventar fürs Zuhause",
+  "category": "Zuhause",
+  "port": 7745,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homebox.png",
+  "website": "https://homebox.software",
+  "description": "Erfasst, was du besitzt: Geräte, Garantien, Kaufbelege und wo etwas liegt. Mit QR-Etiketten zum Ausdrucken."
+}

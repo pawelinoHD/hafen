@@ -1,0 +1,9 @@
+{
+  "name": "Actual Budget",
+  "tagline": "Haushaltsbuch",
+  "category": "Finanzen",
+  "port": 5006,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/actual-budget.png",
+  "website": "https://actualbudget.org",
+  "description": "Schnelles, privates Budget-Programm nach dem Umschlag-Prinzip. Beim ersten Öffnen legst du ein Server-Passwort fest."
+}

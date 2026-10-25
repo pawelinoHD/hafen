@@ -1,0 +1,9 @@
+{
+  "name": "Prowlarr",
+  "tagline": "Quellen für Sonarr & Radarr",
+  "category": "Downloads",
+  "port": 9696,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/prowlarr.png",
+  "website": "https://prowlarr.com",
+  "description": "Verwaltet Indexer an einer Stelle und gibt sie automatisch an Sonarr und Radarr weiter. Andere Apps erreichst du darin unter http://host.docker.internal:PORT."
+}

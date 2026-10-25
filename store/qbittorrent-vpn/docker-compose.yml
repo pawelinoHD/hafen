@@ -1,0 +1,42 @@
+services:
+  # VPN-Tunnel mit eingebauter Notabschaltung: ohne aktive Verbindung blockiert die Firewall jeden Verkehr
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      # qBittorrent hat kein eigenes Netzwerk – seine Oberfläche wird über Gluetun veröffentlicht
+      - "${APP_PORT}:${APP_PORT}"
+    environment:
+      TZ: ${TZ}
+      VPN_SERVICE_PROVIDER: ${VPN_SERVICE_PROVIDER}
+      VPN_TYPE: ${VPN_TYPE}
+      WIREGUARD_PRIVATE_KEY: ${WIREGUARD_PRIVATE_KEY}
+      WIREGUARD_ADDRESSES: ${WIREGUARD_ADDRESSES}
+      OPENVPN_USER: ${OPENVPN_USER}
+      OPENVPN_PASSWORD: ${OPENVPN_PASSWORD}
+      SERVER_COUNTRIES: ${SERVER_COUNTRIES}
+    volumes:
+      - ${APP_DATA_DIR}/gluetun:/gluetun
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    restart: unless-stopped
+    network_mode: "service:gluetun"
+    # Nur auf den Start warten, nicht auf eine stehende VPN-Verbindung: So installiert sich die App auch bei
+    # falschen Zugangsdaten, der Fehler steht im Protokoll und lässt sich über „Einstellungen“ beheben.
+    # Ohne Tunnel blockiert die Gluetun-Firewall trotzdem jeden Verkehr von qBittorrent.
+    depends_on:
+      - gluetun
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      # Muss dem veröffentlichten Port entsprechen, sonst antwortet qBittorrent mit „Unauthorized“
+      WEBUI_PORT: ${APP_PORT}
+    volumes:
+      - ${APP_DATA_DIR}/qbittorrent:/config
+      - ${HAFEN_STORAGE}/Downloads:/downloads

@@ -1,0 +1,13 @@
+{
+  "name": "Nextcloud",
+  "tagline": "Deine eigene Cloud",
+  "category": "Dateien",
+  "port": 8081,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nextcloud.png",
+  "website": "https://nextcloud.com",
+  "description": "Dateien, Kalender, Kontakte und Fotos synchronisieren – wie iCloud, nur auf deinem Mac. Die Ersteinrichtung nach dem Start dauert 1–2 Minuten.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

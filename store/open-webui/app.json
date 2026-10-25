@@ -1,0 +1,9 @@
+{
+  "name": "Open WebUI",
+  "tagline": "ChatGPT-Oberfläche für lokale KI",
+  "category": "KI",
+  "port": 3080,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/open-webui.png",
+  "website": "https://openwebui.com",
+  "description": "Chat-Oberfläche für lokale Sprachmodelle. Tipp für den M1: Installiere Ollama direkt auf dem Mac (ollama.com) – nur dort nutzt es die GPU (Metal). Open WebUI verbindet sich automatisch mit http://host.docker.internal:11434. Der erste angelegte Account wird Admin."
+}

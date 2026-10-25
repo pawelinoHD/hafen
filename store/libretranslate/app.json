@@ -1,0 +1,9 @@
+{
+  "name": "LibreTranslate",
+  "tagline": "Übersetzer ohne Cloud",
+  "category": "KI",
+  "port": 5050,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/libretranslate.png",
+  "website": "https://libretranslate.com",
+  "description": "Übersetzt Texte zwischen Deutsch, Englisch, Französisch, Spanisch, Italienisch, Polnisch und Türkisch – komplett auf deinem Mac. Der erste Start lädt die Sprachmodelle und dauert einige Minuten."
+}

@@ -1,0 +1,18 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - "${APP_PORT}:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: ${MC_TYPE}
+      VERSION: ${MC_VERSION}
+      MEMORY: ${MC_MEMORY}
+      DIFFICULTY: ${MC_DIFFICULTY}
+      MOTD: ${MC_MOTD}
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/data

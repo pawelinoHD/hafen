@@ -1,0 +1,12 @@
+{
+  "name": "Syncthing",
+  "tagline": "Ordner zwischen Geräten abgleichen",
+  "category": "Dateien",
+  "port": 8384,
+  "extraPorts": [
+    22000
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/syncthing.png",
+  "website": "https://syncthing.net",
+  "description": "Hält Ordner auf mehreren Geräten synchron – direkt, verschlüsselt, ohne Cloud. Dein Hafen-Speicher liegt im Container unter /hafen."
+}

@@ -1,0 +1,16 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:7878"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Medien/Filme:/movies
+      - ${HAFEN_STORAGE}/Downloads:/downloads

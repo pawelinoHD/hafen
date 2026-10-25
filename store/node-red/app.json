@@ -1,0 +1,9 @@
+{
+  "name": "Node-RED",
+  "tagline": "Automationen per Drag & Drop",
+  "category": "Smart Home",
+  "port": 1880,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/node-red.png",
+  "website": "https://nodered.org",
+  "description": "Verbindet Geräte, Dienste und Apps über Bausteine, die du im Browser zusammenziehst. Passt gut zu Home Assistant."
+}

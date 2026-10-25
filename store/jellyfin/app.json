@@ -1,0 +1,13 @@
+{
+  "name": "Jellyfin",
+  "tagline": "Dein eigenes Netflix",
+  "category": "Medien",
+  "port": 8096,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jellyfin.png",
+  "website": "https://jellyfin.org",
+  "description": "Streamt Filme, Serien und Musik aus deinem Hafen-Speicher auf jedes Gerät. Lege Filme in „Medien/Filme“ und Serien in „Medien/Serien“ und füge im Einrichtungsassistenten die Bibliothek /media hinzu.",
+  "storageDirs": [
+    "Medien/Filme",
+    "Medien/Serien"
+  ]
+}

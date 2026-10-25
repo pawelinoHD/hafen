@@ -1,0 +1,9 @@
+{
+  "name": "Trilium Notes",
+  "tagline": "Notizen als Wissensbaum",
+  "category": "Produktivität",
+  "port": 8094,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/trilium.png",
+  "website": "https://github.com/TriliumNext/Trilium",
+  "description": "Hierarchische Notizen mit Verlinkungen, Tabellen, Code-Blöcken und Verschlüsselung einzelner Notizen. Beim ersten Öffnen legst du ein Passwort fest."
+}

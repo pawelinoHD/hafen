@@ -1,0 +1,9 @@
+{
+  "name": "SearXNG",
+  "tagline": "Private Suchmaschine",
+  "category": "Netzwerk",
+  "port": 8888,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/searxng.png",
+  "website": "https://docs.searxng.org",
+  "description": "Fragt Google, Bing, DuckDuckGo und viele andere gleichzeitig ab, ohne dass dich jemand verfolgt. Lässt sich im Browser als Standardsuche einstellen."
+}

@@ -1,0 +1,10 @@
+services:
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5000"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/datastore

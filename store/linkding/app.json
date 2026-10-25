@@ -1,0 +1,13 @@
+{
+  "name": "linkding",
+  "tagline": "Lesezeichen für immer",
+  "category": "Produktivität",
+  "port": 9090,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/linkding.png",
+  "website": "https://linkding.link",
+  "description": "Lesezeichen sammeln, mit Schlagwörtern ordnen und durchsuchen. Mit Browser-Erweiterung für Safari, Chrome und Firefox.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

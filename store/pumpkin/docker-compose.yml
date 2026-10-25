@@ -1,0 +1,16 @@
+services:
+  pumpkin:
+    # Offizielles Image für amd64 und arm64; „latest“ folgt der Entwicklung
+    image: ghcr.io/pumpkin-mc/pumpkin:latest
+    restart: unless-stopped
+    # Das Image läuft als UID 2613 – ein frischer Ordner vom Mac gehört aber root.
+    # Als root darf Pumpkin dort Welt und Einstellungen anlegen (der Container bleibt abgeschottet).
+    user: "0:0"
+    stdin_open: true
+    tty: true
+    ports:
+      - "${APP_PORT}:25565"
+    environment:
+      RUST_BACKTRACE: "1"
+    volumes:
+      - ${APP_DATA_DIR}:/pumpkin

@@ -1,0 +1,9 @@
+{
+  "name": "n8n",
+  "tagline": "Automationen ohne Code",
+  "category": "Werkzeuge",
+  "port": 5678,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/n8n.png",
+  "website": "https://n8n.io",
+  "description": "Verbindet über 400 Dienste per Drag & Drop – z. B. „neue Mail mit Rechnung → in Paperless ablegen → Push über ntfy“. Kann auch lokale KI über Ollama einbinden. Beim ersten Öffnen legst du ein Konto an."
+}

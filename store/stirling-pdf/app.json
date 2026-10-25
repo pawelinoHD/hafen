@@ -1,0 +1,9 @@
+{
+  "name": "Stirling-PDF",
+  "tagline": "Alles für PDFs",
+  "category": "Werkzeuge",
+  "port": 8090,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/stirling-pdf.png",
+  "website": "https://www.stirlingpdf.com",
+  "description": "PDFs zusammenfügen, teilen, komprimieren, umwandeln, OCR – über 50 Werkzeuge, komplett lokal."
+}

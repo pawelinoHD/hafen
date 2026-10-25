@@ -1,0 +1,13 @@
+{
+  "name": "Lidarr",
+  "tagline": "Musik automatisch verwalten",
+  "category": "Downloads",
+  "port": 8686,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lidarr.png",
+  "website": "https://lidarr.audio",
+  "description": "Das Sonarr für Musik: beobachtet Künstler, lädt neue Alben über qBittorrent und sortiert sie nach „Musik“ – von wo Navidrome sie abspielt.",
+  "storageDirs": [
+    "Musik",
+    "Downloads"
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "name": "qBittorrent + VPN",
+  "tagline": "Downloads nur durchs VPN",
+  "category": "Downloads",
+  "port": 8089,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/qbittorrent.png",
+  "website": "https://github.com/qdm12/gluetun",
+  "description": "qBittorrent, dessen gesamter Verkehr durch deinen VPN-Anbieter läuft (über Gluetun). Bricht das VPN ab, hat qBittorrent sofort gar kein Internet mehr – deine echte IP wird nie sichtbar. Ob der Tunnel steht, siehst du im Protokoll an der Zeile „Public IP address is …“. Benutzer und Startpasswort zeigt Hafen unter „Zugangsdaten“. Kann parallel zum normalen qBittorrent laufen.",
+  "storageDirs": [
+    "Downloads"
+  ],
+  "vpn": "gluetun",
+  "settings": [
+    {
+      "key": "VPN_SERVICE_PROVIDER",
+      "label": "VPN-Anbieter",
+      "required": true,
+      "default": "mullvad",
+      "options": [
+        {
+          "value": "mullvad",
+          "label": "Mullvad"
+        },
+        {
+          "value": "protonvpn",
+          "label": "Proton VPN"
+        },
+        {
+          "value": "airvpn",
+          "label": "AirVPN"
+        },
+        {
+          "value": "ivpn",
+          "label": "IVPN"
+        },
+        {
+          "value": "nordvpn",
+          "label": "NordVPN"
+        },
+        {
+          "value": "surfshark",
+          "label": "Surfshark"
+        },
+        {
+          "value": "windscribe",
+          "label": "Windscribe"
+        },
+        {
+          "value": "private internet access",
+          "label": "Private Internet Access"
+        },
+        {
+          "value": "cyberghost",
+          "label": "CyberGhost"
+        },
+        {
+          "value": "expressvpn",
+          "label": "ExpressVPN (nur OpenVPN)"
+        }
+      ]
+    },
+    {
+      "key": "VPN_TYPE",
+      "label": "Verbindungsart",
+      "required": true,
+      "default": "wireguard",
+      "options": [
+        {
+          "value": "wireguard",
+          "label": "WireGuard (schneller)"
+        },
+        {
+          "value": "openvpn",
+          "label": "OpenVPN"
+        }
+      ]
+    },
+    {
+      "key": "WIREGUARD_PRIVATE_KEY",
+      "label": "WireGuard-Privatschlüssel",
+      "secret": true,
+      "required": {
+        "VPN_TYPE": [
+          "wireguard"
+        ]
+      },
+      "showIf": {
+        "VPN_TYPE": [
+          "wireguard"
+        ]
+      },
+      "placeholder": "z. B. wOEI9rqqbDwnN8/Bpp22sVz48T71vJ4fYmFWujulwUU=",
+      "help": "Steht in der WireGuard-Konfigurationsdatei deines Anbieters unter „PrivateKey“."
+    },
+    {
+      "key": "WIREGUARD_ADDRESSES",
+      "label": "WireGuard-Adresse",
+      "showIf": {
+        "VPN_TYPE": [
+          "wireguard"
+        ]
+      },
+      "placeholder": "z. B. 10.64.222.21/32",
+      "help": "Nur bei Mullvad, IVPN und AirVPN nötig – steht in der Konfigurationsdatei unter „Address“ (nur den IPv4-Teil)."
+    },
+    {
+      "key": "OPENVPN_USER",
+      "label": "OpenVPN-Benutzername",
+      "required": {
+        "VPN_TYPE": [
+          "openvpn"
+        ]
+      },
+      "showIf": {
+        "VPN_TYPE": [
+          "openvpn"
+        ]
+      },
+      "help": "Bei den meisten Anbietern ein eigener Dienst-Benutzername, nicht deine Login-E-Mail."
+    },
+    {
+      "key": "OPENVPN_PASSWORD",
+      "label": "OpenVPN-Passwort",
+      "secret": true,
+      "required": {
+        "VPN_TYPE": [
+          "openvpn"
+        ]
+      },
+      "showIf": {
+        "VPN_TYPE": [
+          "openvpn"
+        ]
+      }
+    },
+    {
+      "key": "SERVER_COUNTRIES",
+      "label": "Serverland",
+      "placeholder": "z. B. Netherlands",
+      "help": "Optional, auf Englisch. Mehrere mit Komma: Netherlands,Switzerland"
+    }
+  ],
+  "logCredentials": {
+    "service": "qbittorrent",
+    "user": "admin",
+    "pattern": "temporary password is provided for this session: (\\S+)",
+    "confFile": "qbittorrent/qBittorrent/qBittorrent.conf",
+    "setMarker": "Password_PBKDF2"
+  }
+}

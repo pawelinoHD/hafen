@@ -1,0 +1,17 @@
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    restart: unless-stopped
+    ports:
+      # qBittorrent lehnt Anfragen ab („Unauthorized“), wenn Port außen und innen verschieden sind
+      - "${APP_PORT}:${APP_PORT}"
+      - "6881:6881"
+      - "6881:6881/udp"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      WEBUI_PORT: ${APP_PORT}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Downloads:/downloads

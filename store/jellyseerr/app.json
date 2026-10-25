@@ -1,0 +1,9 @@
+{
+  "name": "Jellyseerr",
+  "tagline": "Film- & Serienwünsche",
+  "category": "Medien",
+  "port": 5055,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jellyseerr.png",
+  "website": "https://docs.jellyseerr.dev",
+  "description": "Eine schöne Oberfläche, um Filme und Serien zu entdecken und für Jellyfin anzufragen. Zusammen mit Sonarr und Radarr landen Wünsche automatisch in der Bibliothek."
+}

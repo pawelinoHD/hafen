@@ -1,0 +1,9 @@
+{
+  "name": "Wiki.js",
+  "tagline": "Dein eigenes Wiki",
+  "category": "Produktivität",
+  "port": 3020,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wikijs.png",
+  "website": "https://js.wiki",
+  "description": "Ein schönes Wiki für Anleitungen, Rezepte, Familienwissen oder Projektnotizen – mit Markdown-Editor und Suche. Beim ersten Öffnen legst du das Admin-Konto an."
+}

@@ -1,0 +1,13 @@
+services:
+  jupyter:
+    image: quay.io/jupyter/minimal-notebook:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8888"
+    environment:
+      JUPYTER_TOKEN: ${APP_PASSWORD}
+      TZ: ${TZ}
+    volumes:
+      - work:/home/jovyan/work
+volumes:
+  work:

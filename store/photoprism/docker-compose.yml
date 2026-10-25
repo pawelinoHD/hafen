@@ -1,0 +1,19 @@
+services:
+  photoprism:
+    image: photoprism/photoprism:latest
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    ports:
+      - "${APP_PORT}:2342"
+    environment:
+      PHOTOPRISM_ADMIN_USER: admin
+      PHOTOPRISM_ADMIN_PASSWORD: ${APP_PASSWORD}
+      PHOTOPRISM_AUTH_MODE: password
+      PHOTOPRISM_DATABASE_DRIVER: sqlite
+      PHOTOPRISM_DEFAULT_LOCALE: de
+      PHOTOPRISM_ORIGINALS_LIMIT: "5000"
+    volumes:
+      - ${HAFEN_STORAGE}/Fotos:/photoprism/originals
+      - ${APP_DATA_DIR}:/photoprism/storage
