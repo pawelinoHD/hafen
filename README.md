@@ -21,6 +21,16 @@ Umbrel selbst gibt es nicht für Apple Silicon. Hafen läuft deshalb auf zwei Ar
 - **Verlauf**: CPU, RAM und Netzwerk über 1 Stunde, 24 Stunden und 7 Tage, fürs System und pro App
 - **Erweiterungen**: Neue Funktionen sind eigene Module in `lib/features/` und `public/features/`, siehe [FEATURES.md](FEATURES.md)
 
+## Hafen aktualisieren
+
+Ab Hafen 2.1: **Einstellungen → Hafen aktualisieren** und die neue `hafen.zip` auswählen. Hafen prüft die Datei, sichert die laufende Fassung nach `~/hafen-daten/aktualisierung/vorige-fassung` und startet neu. Apps und Daten bleiben erhalten. Im selben Dialog holst du die vorige Fassung mit einem Klick zurück.
+
+Startet Hafen nach einem Update nicht mehr, hilft das Terminal:
+
+```bash
+rsync -a --delete ~/hafen-daten/aktualisierung/vorige-fassung/ ~/hafen/ && launchctl kickstart -k gui/$(id -u)/de.hafen.server
+```
+
 ## Installation auf dem Mac
 
 ```bash
