@@ -7,7 +7,8 @@ import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
 import { execFile, execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { EventEmitter } from 'node:events';
 import { createApps, lanAddresses } from './lib/apps.js';
 import { PROVIDERS, listModels, chat as aiChat, explain as aiExplain } from './lib/ai.js';
 
@@ -72,7 +73,12 @@ setInterval(refreshTailscale, 60_000).unref();
 const tailscaleHosts = () => (tailscale.state === 'Running' ? [tailscale.short, tailscale.name, tailscale.ip].filter(Boolean) : []);
 const hosts = () => [...new Set(['localhost', `${hostName()}.local`, ...lanAddresses(), ...tailscaleHosts()])];
 
-const apps = createApps({ storeDir: path.join(ROOT, 'store'), homeDir: HOME, storageDir: STORAGE, demo: DEMO, hosts });
+// Ereignisse für Erweiterungen (z. B. Mitteilungen): 'job' bei jedem Ende einer App-Aktion
+const events = new EventEmitter();
+events.setMaxListeners(50);
+const CUSTOM_STORE = path.join(HOME, 'eigene-apps');
+const apps = createApps({ storeDir: path.join(ROOT, 'store'), extraStoreDirs: [CUSTOM_STORE], homeDir: HOME, storageDir: STORAGE,
+  demo: DEMO, hosts, onEvent: (e) => events.emit(e.type, e) });
 
 // ---------- Anmeldung ----------
 function hashPassword(pw, salt = crypto.randomBytes(16).toString('hex')) {
@@ -638,9 +644,43 @@ function handleDownload(req, res, url) {
   fs.createReadStream(p).pipe(res);
 }
 
+// ---------- Erweiterungen (lib/features/*.js + public/features/*.js) ----------
+// Jede Server-Erweiterung exportiert default async (ctx) => ({ routes?, handle? }).
+//   routes: wie oben, überschreiben gleichnamige eingebaute Routen
+//   handle(req, res, url, authed): für alles, was nicht JSON ist (z. B. öffentliche Links) – true = erledigt
+const featureHandlers = [];
+const featureCtx = {
+  ROOT, HOME, STORAGE, DEMO, PORT, VERSION, CUSTOM_STORE,
+  get config() { return config; }, saveConfig,
+  apps, events, systemInfo, hosts, hostName,
+  httpError, readJson, send, safePath, sendInline, MEDIA_EXT,
+  log: (...a) => console.log('[feature]', ...a),
+};
+const FEATURE_DIR = path.join(ROOT, 'lib', 'features');
+const loadedFeatures = [];
+for (const file of fs.existsSync(FEATURE_DIR) ? fs.readdirSync(FEATURE_DIR).filter((f) => f.endsWith('.js')).sort() : []) {
+  try {
+    const mod = await import(pathToFileURL(path.join(FEATURE_DIR, file)).href);
+    const def = (await mod.default(featureCtx)) || {};
+    Object.assign(routes, def.routes || {});
+    if (def.handle) featureHandlers.push(def.handle);
+    loadedFeatures.push(file.replace(/\.js$/, ''));
+  } catch (e) {
+    // Eine kaputte Erweiterung darf Hafen nicht lahmlegen
+    console.error(`[feature] ${file} konnte nicht geladen werden:`, e);
+  }
+}
+// Die Oberfläche lädt public/features/*.js als ES-Module (ohne Anmeldung abrufbar, enthalten keine Daten)
+routes['GET /api/features'] = { open: true, fn: async () => ({
+  server: loadedFeatures,
+  client: fs.existsSync(path.join(ROOT, 'public', 'features'))
+    ? fs.readdirSync(path.join(ROOT, 'public', 'features')).filter((f) => f.endsWith('.js')).sort().map((f) => `/features/${f}`) : [],
+}) };
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://x');
   try {
+    for (const handle of featureHandlers) if (await handle(req, res, url, validSession(req))) return;
     if (!url.pathname.startsWith('/api/')) return serveStatic(req, res, url.pathname);
     const authed = validSession(req);
     if (req.method === 'POST' && url.pathname === '/api/files/upload') {

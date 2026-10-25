@@ -135,6 +135,10 @@ const DOCK_ART = {
     <rect width="52" height="52" rx="13" fill="url(#dua)"/><path d="M10 39h32" stroke="#3ee39a" stroke-opacity=".25" stroke-width="1.5"/><path d="M10 33l6-5 4 6 6-14 5 9 4-5 7 6" fill="none" stroke="#3ee39a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
 const WINDOWS = { files: 'Dateien', photos: 'Fotos', store: 'App Store', settings: 'Einstellungen', usage: 'Live-Nutzung' };
+
+// ---------- Erweiterungen ----------
+// Module aus public/features/ melden sich über window.Hafen an (siehe FEATURES.md)
+const ext = { windows: {}, settings: [], fileMenu: [], filesSide: [], appMenu: [], usage: [], storeActions: [], overlays: [], onPoll: [], deleteHint: null };
 const dockArt = (k, size) => h('span', { class: 'ic', style: `--s:${size}px;background:none;border:0;box-shadow:none`, html: DOCK_ART[k] });
 
 // App-Icon: dunkle Kachel mit Logo (bei fehlendem Bild ein Buchstabe)
@@ -200,6 +204,7 @@ async function poll() {
   if (!state.status?.loggedIn) return;
   await Promise.all([refreshApps(), refreshSystem(), refreshRecent()]);
   update();
+  for (const fn of ext.onPoll) safeExt(fn);
   pollTimer = setTimeout(poll, state.apps.some(isBusy) ? 1200 : 3500);
 }
 
@@ -214,7 +219,7 @@ function render() {
   applyWallpaper();
   document.body.classList.toggle('blur', !s.loggedIn || !s.setup);
   if (!s.setup || !s.loggedIn) return root.append(viewAuth(s.setup ? 'login' : 'setup'));
-  root.append(h('div', { id: 'desk' }), h('div', { id: 'win' }), viewDock(),
+  root.append(h('div', { id: 'desk' }), h('div', { id: 'win' }), viewDock(), ...ext.overlays.map((fn) => safeExt(fn)).filter(Boolean),
     // Klick auf die Kugel öffnet direkt den KI-Assistenten, der Rest der Pille die Suche
     h('button', { class: 'search-pill', onclick: () => openSpotlight() },
       h('span', { class: 'orb', title: 'Hafen fragen', onclick: (e) => { e.stopPropagation(); openSpotlight(true); } }),
@@ -282,6 +287,7 @@ function sameAttrs(a, b) {
 }
 
 function onWindowOpen(page) {
+  try { ext.windows[page]?.onOpen?.(); } catch (e) { console.error('[feature]', e); }
   if (page === 'files') loadFiles();
   if (page === 'photos') loadMedia();
   if (page === 'settings') { loadRemote(); loadAiConfig().then(update); }
@@ -808,7 +814,7 @@ function launch(el) {
 }
 
 function viewDock() {
-  const dock = h('nav', { class: 'dock', 'aria-label': 'Dock' }, Object.entries(WINDOWS).map(([k, label]) =>
+  const dock = h('nav', { class: 'dock', 'aria-label': 'Dock' }, Object.entries(WINDOWS).filter(([k]) => !ext.windows[k]?.hidden).map(([k, label]) =>
     h('button', { 'data-page': k, 'data-tip': label, 'aria-label': label, html: DOCK_ART[k],
       onclick: (e) => { if (route()[0] !== k) launch(e.currentTarget); go(route()[0] === k ? '#/' : `#/${k}`); } })));
   // Vergrößerung wie im macOS-Dock: je näher der Zeiger, desto größer das Symbol
@@ -847,6 +853,7 @@ function appMenu(x, y, app) {
     { label: 'Aktualisieren', fn: () => control(app, 'update') },
     { label: 'Protokoll', fn: () => showLogs(app) },
     app.settings && { label: 'Einstellungen …', fn: () => appSettingsDialog(app, 'configure') }, '-',
+    ...ext.appMenu.map((fn) => safeExt(() => fn(app))),
     { label: 'Deinstallieren', danger: true, fn: () => confirmUninstall(app) },
   ]);
 }
@@ -951,7 +958,8 @@ async function showLogs(app) {
 
 // ---------- Fenster ----------
 function viewWindow(page, args) {
-  const content = { files: viewFiles, photos: viewPhotos, store: viewStore, settings: viewSettings, usage: viewUsage }[page](args);
+  const builtin = { files: viewFiles, photos: viewPhotos, store: viewStore, settings: viewSettings, usage: viewUsage }[page];
+  const content = builtin ? builtin(args) : ext.windows[page].render(args);
   return h('div', { class: 'win-wrap' },
     h('div', { class: 'bg', onclick: () => go('#/') }),
     h('div', { class: 'window', role: 'dialog', 'aria-label': WINDOWS[page] },
@@ -1004,8 +1012,9 @@ function viewFiles() {
     openMenu(x, y, [
       { label: e.dir ? 'Öffnen' : 'Öffnen', fn: () => open(e) },
       !e.dir && { label: 'Herunterladen', fn: () => (location.href = `/api/files/download?path=${encodeURIComponent(p)}`) },
-      { label: 'Umbenennen', fn: () => renameFile(p, e.name) }, '-',
-      { label: 'Löschen', danger: true, fn: () => dialog(`„${e.name}“ löschen?`, e.dir ? 'Der Ordner und alles darin werden endgültig gelöscht.' : 'Die Datei wird endgültig gelöscht.', {
+      { label: 'Umbenennen', fn: () => renameFile(p, e.name) },
+      ...ext.fileMenu.map((fn) => safeExt(() => fn(e, p, loadFiles))), '-',
+      { label: 'Löschen', danger: true, fn: () => dialog(`„${e.name}“ löschen?`, ext.deleteHint ? ext.deleteHint(e) : e.dir ? 'Der Ordner und alles darin werden endgültig gelöscht.' : 'Die Datei wird endgültig gelöscht.', {
         confirm: 'Löschen', danger: true, onConfirm: async () => { try { await api('/api/files/delete', { path: p }); toast('Gelöscht'); loadFiles(); } catch (x) { toast(x.message, true); } } }) },
     ]);
   };
@@ -1050,7 +1059,8 @@ function viewFiles() {
       h('h5', {}, 'Favoriten'),
       folders.map((p) => navItem(p, p, h('span', { style: 'display:contents', html: FOLDER_SVG.replace('class="ficon"', 'width="17" height="17"') }))),
       h('hr'),
-      h('button', { class: 'nav-item', onclick: () => go('#/photos') }, icon('photos'), 'Fotos ansehen')),
+      h('button', { class: 'nav-item', onclick: () => go('#/photos') }, icon('photos'), 'Fotos ansehen'),
+      ext.filesSide.map((s) => h('button', { class: 'nav-item' + (s.active?.() ? ' on' : ''), onclick: s.onClick }, s.icon ? s.icon() : icon('folder'), s.label))),
     h('section', { class: 'main' },
       h('div', { class: 'toolbar' },
         h('button', { class: 'icon-btn', disabled: !f.back.length, 'aria-label': 'Zurück', onclick: () => { f.fwd.push(f.path); cd(f.back.pop(), { history: false }); } }, icon('left')),
@@ -1242,6 +1252,7 @@ function viewStore(args) {
       h('h2', { class: 'win-title' }, 'App Store'),
       h('label', { class: 'search', style: 'min-width:240px' }, icon('search'),
         h('input', { class: 'autofocus', placeholder: 'Apps suchen', value: s.q, 'aria-label': 'Apps suchen', oninput: (e) => { s.q = e.target.value; update(); } })),
+      ext.storeActions.map((a) => h('button', { class: 'btn ghost', style: 'height:38px', onclick: a.onClick }, a.icon ? a.icon() : null, a.label)),
       state.apps.some((a) => a.installed) && h('button', { class: 'btn ghost', style: 'height:38px', onclick: updateAll }, icon('refresh'), 'Alle aktualisieren')),
     !s.q && h('div', { class: 'cats' },
       h('button', { class: 'cat' + (s.cat === 'entdecken' ? ' on' : ''), onclick: () => { s.cat = 'entdecken'; update(); } }, catIcon('Entdecken'), 'Entdecken'),
@@ -1406,6 +1417,8 @@ function viewSettings() {
       item({ tab: 'system', ic: 'info', title: 'Über Hafen', desc: `Version ${sys.version || ''}${sys.demo ? ' · Demo-Modus' : ''} · ${sys.platform || ''}/${sys.arch || ''}` }),
     ],
   ];
+  const extItems = ext.settings.map((fn) => safeExt(() => fn(sys))).filter(Boolean).map(item);
+  if (extItems.length) groups.splice(1, 0, extItems);
   const q = state.settingsQ.toLowerCase(), tab = state.settingsTab;
   const shown = groups.map((g) => g.filter((it) => (tab === 'alle' || it.tab === tab) && (!q || it.text.includes(q)))).filter((g) => g.length);
 
@@ -1564,7 +1577,8 @@ function viewUsage() {
         h('div', { class: 'bar' }, h('i', { style: `width:${width(v)}%` })),
         h('span', { class: 'num' }, fmt(v)),
         h('button', { class: 'more', 'aria-label': `Aktionen für ${a.name}`, onclick: (e) => { e.stopPropagation(); const r = e.currentTarget.getBoundingClientRect(); appMenu(r.right - 200, r.bottom + 4, a); } }, '⋯'))),
-      !rows.length && h('div', { class: 'empty' }, 'Installierte Apps erscheinen hier mit ihrem Verbrauch.')));
+      !rows.length && h('div', { class: 'empty' }, 'Installierte Apps erscheinen hier mit ihrem Verbrauch.')),
+    ext.usage.map((fn) => safeExt(() => fn(sys))));
 }
 
 // ---------- KI-Assistent (die Kugel) ----------
@@ -1889,7 +1903,56 @@ addEventListener('keydown', (e) => {
   else if (route()[0]) go(route()[0] === 'store' && route()[1] ? '#/store' : '#/');
   else if (state.editMode) exitEdit();
 });
-boot().catch((e) => {
+// ---------- Schnittstelle für Erweiterungen (public/features/*.js) ----------
+// Fehler in einer Erweiterung dürfen die Oberfläche nicht lahmlegen
+function safeExt(fn) {
+  try { return fn(); } catch (e) { console.error('[feature]', e); return null; }
+}
+window.Hafen = {
+  // Bausteine
+  h, api, toast, dialog, field, check, choice, icon, icons: I, md, appIcon, dockArt, LOGO,
+  openMenu, closeMenu, fmtBytes, fmtDate, relTime, de, pct,
+  // Zustand und Navigation
+  state, update, go, route, cd: (p) => cd(p), reloadFiles: () => loadFiles(), poll: () => poll(),
+  control: (app, action) => control(app, action), install: (app) => install(app), appUrl, isBusy,
+  // Ein Fenster: key, { title, dockSvg (52×52-SVG-Text), render(args) → Element, onOpen?(), hidden? }
+  // hidden: true = nicht im Dock, nur über go('#/key') oder die Suche erreichbar
+  registerWindow(key, { title, dockSvg, render, onOpen, hidden = false }) {
+    WINDOWS[key] = title;
+    DOCK_ART[key] = dockSvg;
+    ext.windows[key] = { render, onOpen, hidden };
+  },
+  // fn(sys) → { tab: 'konto'|'system', ic, title, desc, onclick?, right? } oder null
+  addSettingsItem: (fn) => ext.settings.push(fn),
+  // fn(entry, relPath, reload) → { label, fn, danger? } oder null
+  addFileMenuItem: (fn) => ext.fileMenu.push(fn),
+  // { label, icon?() → Element, onClick, active?() → bool }
+  addFilesSideItem: (item) => ext.filesSide.push(item),
+  // fn(app) → { label, fn, danger? } oder null
+  addAppMenuItem: (fn) => ext.appMenu.push(fn),
+  // fn(sys) → Element (unter der App-Liste in „Live-Nutzung“)
+  addUsageSection: (fn) => ext.usage.push(fn),
+  // { label, icon?() → Element, onClick } – Knopf oben im App Store
+  addStoreAction: (a) => ext.storeActions.push(a),
+  // fn() → Element, das einmal fest über der Startseite liegt (z. B. Glocke)
+  addOverlay: (fn) => ext.overlays.push(fn),
+  // fn() – nach jeder Abfrage (alle 1–4 s)
+  onPoll: (fn) => ext.onPoll.push(fn),
+  // fn(entry) → Text im Löschen-Dialog der Dateien
+  setDeleteHint: (fn) => { ext.deleteHint = fn; },
+  // Zusätzliches CSS
+  css(text) { document.head.append(h('style', {}, text)); },
+};
+
+// Erweiterungen laden, bevor die Oberfläche aufgebaut wird (sie tragen sich in Dock und Menüs ein)
+async function loadFeatures() {
+  let list = [];
+  try { list = (await api('/api/features')).client; } catch { }
+  for (const src of list) {
+    try { await import(src); } catch (e) { console.error('[feature] konnte nicht geladen werden:', src, e); }
+  }
+}
+loadFeatures().finally(() => boot().catch((e) => {
   root.replaceChildren(h('div', { class: 'auth' }, h('form', {}, h('h1', {}, 'Hafen antwortet nicht'),
     h('p', {}, `${e.message}. Prüfe, ob der Hafen-Dienst läuft, und lade die Seite neu.`))));
-});
+}));
