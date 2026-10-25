@@ -8,8 +8,15 @@ const WALLPAPERS = { tiefsee: 'Tiefsee', nordlicht: 'Nordlicht', glut: 'Glut', v
 const catSlug = (c) => c.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/\s+/g, '-');
 const CAT_ICONS = new Set(['entdecken', 'dateien', 'downloads', 'entwicklung', 'finanzen', 'fotos', 'ki', 'lesen', 'medien',
   'netzwerk', 'produktivitaet', 'sicherheit', 'smart-home', 'werkzeuge', 'zuhause', 'spiele']);
+// Schlägt das Laden fehl (z. B. weil Hafen gerade neu startet), erneut versuchen – patch() ersetzt das Bild sonst nie
+const retryImg = (e) => {
+  const img = e.currentTarget, n = Number(img.dataset.retry || 0);
+  if (n >= 6) return;
+  img.dataset.retry = n + 1;
+  setTimeout(() => { img.src = img.src.replace(/\?.*$/, '') + `?r=${n + 1}`; }, 1500 * (n + 1));
+};
 const catIcon = (c, size = 20) => (CAT_ICONS.has(catSlug(c))
-  ? h('img', { class: 'cat-ic', src: `/icons/kategorien/${catSlug(c)}.svg`, alt: '', width: size, height: size })
+  ? h('img', { class: 'cat-ic', src: `/icons/kategorien/${catSlug(c)}.svg`, alt: '', width: size, height: size, onerror: retryImg })
   : h('span', { class: 'cat-ic dot-ic' }));
 const FEATURED = ['jellyfin', 'nextcloud', 'home-assistant', 'open-webui', 'paperless-ngx'];
 
