@@ -12,5 +12,6 @@ services:
       PHP_UPLOAD_LIMIT: 16G
     volumes:
       - html:/var/www/html
+      - ./hooks/before-starting:/docker-entrypoint-hooks.d/before-starting:ro
 volumes:
   html:

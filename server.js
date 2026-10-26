@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
+import dns from 'node:dns/promises';
 import { execFile, execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { EventEmitter } from 'node:events';
@@ -71,7 +72,31 @@ refreshTailscale();
 setInterval(refreshTailscale, 60_000).unref();
 
 const tailscaleHosts = () => (tailscale.state === 'Running' ? [tailscale.short, tailscale.name, tailscale.ip].filter(Boolean) : []);
-const hosts = () => [...new Set(['localhost', `${hostName()}.local`, ...lanAddresses(), ...tailscaleHosts()])];
+// Weitere Netzwerknamen: der NetBIOS-Name des Macs (z. B. „MACBOOKAIR-79C8“ – unter dem rufen Windows-PCs ihn auf)
+// und was der Router per Rückwärtsauflösung liefert (FritzBox: „name.fritz.box“)
+let routerNames = [];
+async function refreshRouterNames() {
+  const names = [];
+  if (process.platform === 'darwin') {
+    const netbios = await new Promise((resolve) => execFile('defaults', ['read', '/Library/Preferences/SystemConfiguration/com.apple.smb.server', 'NetBIOSName'],
+      { timeout: 3000 }, (err, out) => resolve(err ? '' : out.trim())));
+    if (/^[\w-]{1,63}$/.test(netbios)) names.push(netbios);
+  }
+  for (const ip of lanAddresses()) {
+    try {
+      for (const n of await dns.reverse(ip)) {
+        const name = n.replace(/\.$/, '');
+        if (!name || /^\d+\.\d+\.\d+\.\d+$/.test(name)) continue;
+        names.push(name);
+        if (name.includes('.') && !name.endsWith('.local')) names.push(name.split('.')[0]);
+      }
+    } catch {}
+  }
+  routerNames = [...new Set(names)];
+}
+refreshRouterNames();
+setInterval(refreshRouterNames, 10 * 60_000).unref();
+const hosts = () => [...new Set(['localhost', `${hostName()}.local`, hostName(), ...routerNames, ...lanAddresses(), ...tailscaleHosts()])];
 
 // Ereignisse für Erweiterungen (z. B. Mitteilungen): 'job' bei jedem Ende einer App-Aktion
 const events = new EventEmitter();
