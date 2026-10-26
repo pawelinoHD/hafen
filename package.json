@@ -1,6 +1,6 @@
 {
   "name": "hafen",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Hafen – ein Heimserver-OS im Stil von Umbrel für Apple-Silicon-Macs und Linux",
   "type": "module",
   "main": "server.js",
