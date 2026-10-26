@@ -114,7 +114,19 @@ cat > "$PLIST" <<PLIST
 </plist>
 PLIST
 launchctl bootout "gui/$(id -u)/$LABEL" 2>/dev/null || true
-launchctl bootstrap "gui/$(id -u)" "$PLIST"
+# bootout arbeitet im Hintergrund: Ein sofortiges bootstrap scheitert sonst mit „5: Input/output error“
+for _ in {1..20}; do
+  launchctl print "gui/$(id -u)/$LABEL" >/dev/null 2>&1 || break
+  sleep 0.5
+done
+gestartet=0
+for _ in {1..5}; do
+  if launchctl bootstrap "gui/$(id -u)" "$PLIST" 2>/dev/null; then gestartet=1; break; fi
+  # Läuft der Dienst doch noch, reicht ein Neustart mit dem neuen Code
+  if launchctl kickstart -k "gui/$(id -u)/$LABEL" 2>/dev/null; then gestartet=1; break; fi
+  sleep 1
+done
+[ "$gestartet" = 1 ] || fehler "Autostart konnte nicht eingerichtet werden. Versuch: launchctl bootstrap gui/$(id -u) $PLIST"
 launchctl enable "gui/$(id -u)/$LABEL"
 
 # Warten, bis der Server antwortet
