@@ -7,7 +7,9 @@ occ() { php /var/www/html/occ "$@" >/dev/null 2>&1; }
 occ status --no-warnings || { echo "Hafen: Nextcloud noch nicht eingerichtet, Adressen folgen beim nächsten Start"; exit 0; }
 occ config:system:delete trusted_domains || true
 i=0
-for h in localhost $NEXTCLOUD_TRUSTED_DOMAINS; do
+# Muster dazu: Die IP im Heimnetz wechselt (DHCP, private WLAN-Adresse von macOS), die Liste von Hafen wäre dann veraltet.
+# Nextcloud versteht * als Platzhalter; erlaubt sind nur private Netze, .local- und Tailscale-Namen.
+for h in localhost $NEXTCLOUD_TRUSTED_DOMAINS '192.168.*' '10.*' '*.local' '*.ts.net'; do
   occ config:system:set trusted_domains "$i" --value="$h" || true
   i=$((i + 1))
 done
