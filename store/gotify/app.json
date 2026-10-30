@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Gotify",
+  "tagline": "Eigene Push-Nachrichten",
+  "category": "Netzwerk",
+  "port": 8019,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/gotify.png",
+  "website": "https://gotify.net",
+  "description": "Schickt Nachrichten aus Skripten und Apps per einfachem HTTP-Aufruf aufs Handy. Mit Android-App und Weboberfläche.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

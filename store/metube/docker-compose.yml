@@ -1,0 +1,12 @@
+services:
+  metube:
+    image: ghcr.io/alexta69/metube:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8081"
+    environment:
+      TZ: ${TZ}
+      UID: ${PUID}
+      GID: ${PGID}
+    volumes:
+      - ${HAFEN_STORAGE}/Downloads/Videos:/downloads

@@ -18,7 +18,8 @@ const retryImg = (e) => {
 const catIcon = (c, size = 20) => (CAT_ICONS.has(catSlug(c))
   ? h('img', { class: 'cat-ic', src: `/icons/kategorien/${catSlug(c)}.svg`, alt: '', width: size, height: size, onerror: retryImg })
   : h('span', { class: 'cat-ic dot-ic' }));
-const FEATURED = ['jellyfin', 'nextcloud', 'home-assistant', 'open-webui', 'paperless-ngx'];
+const FEATURED = ['jellyfin', 'immich', 'nextcloud', 'home-assistant', 'open-webui', 'paperless-ngx'];
+const NEU_TAGE = 60;  // So lange zeigt der Store eine App (app.json: added) unter „Neu im Store“
 
 const state = {
   status: null, apps: [], docker: true, system: null, history: { cpu: [], mem: [], rx: [], tx: [] },
@@ -1231,6 +1232,7 @@ function viewStore(args) {
   } else if (s.cat === 'entdecken') {
     const feat = FEATURED.map((id) => state.apps.find((a) => a.id === id)).filter(Boolean);
     const busy = state.apps.filter(isBusy);
+    const neu = state.apps.filter((a) => a.added && Date.now() - Date.parse(a.added) < NEU_TAGE * 864e5).sort((a, b) => b.added.localeCompare(a.added));
     const car = h('div', { class: 'carousel', onscroll: (e) => {
       const n = Math.round(e.target.scrollLeft / (e.target.firstChild?.offsetWidth + 16 || 1));
       if (n !== s.slide) { s.slide = n; e.target.parentNode.querySelectorAll('.dots i').forEach((d, j) => d.classList.toggle('on', j === n)); }
@@ -1246,6 +1248,8 @@ function viewStore(args) {
       h('div', { class: 'car-nav' }, h('div', { class: 'dots' }, feat.map((_, j) => h('i', { class: j === s.slide ? 'on' : null }))),
         h('button', { class: 'icon-btn', 'aria-label': 'Zurück', onclick: () => scrollTo(-1) }, icon('left')),
         h('button', { class: 'icon-btn', 'aria-label': 'Weiter', onclick: () => scrollTo(1) }, icon('right'))),
+      neu.length > 0 && [h('div', { class: 'sec-title' }, h('small', {}, `${neu.length} neue Apps`), h('h3', {}, 'Neu im Store')),
+        h('div', { class: 'cards' }, neu.slice(0, 12).map(card))],
       h('div', { class: 'sec-title' }, h('small', {}, 'Empfohlen'), h('h3', {}, 'Beliebt bei Heimservern')),
       h('div', { class: 'cards' }, state.apps.filter((a) => !FEATURED.includes(a.id)).slice(0, 12).map(card)),
       cats.map((c) => [h('div', { class: 'sec-title' }, h('h3', { class: 'with-ic' }, catIcon(c, 24), c)),

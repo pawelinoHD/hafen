@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Excalidraw",
+  "tagline": "Whiteboard im Skizzenstil",
+  "category": "Werkzeuge",
+  "port": 3016,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/excalidraw.png",
+  "website": "https://excalidraw.com",
+  "description": "Digitale Tafel für Skizzen und Diagramme im handgezeichneten Stil. Zeichnungen bleiben in deinem Browser, bis du sie als Datei speicherst."
+}

@@ -1,0 +1,45 @@
+services:
+  ghostfolio:
+    image: ghostfolio/ghostfolio:latest
+    restart: unless-stopped
+    init: true
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${APP_PORT}:3333"
+    environment:
+      TZ: ${TZ}
+      DATABASE_URL: postgresql://ghostfolio:${APP_SECRET}@postgres:5432/ghostfolio?connect_timeout=300
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: ${APP_SECRET}
+      ACCESS_TOKEN_SALT: ${APP_SECRET}
+      JWT_SECRET_KEY: ${APP_SECRET}
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ghostfolio
+      POSTGRES_USER: ghostfolio
+      POSTGRES_PASSWORD: ${APP_SECRET}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ghostfolio -U ghostfolio"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--requirepass", "${APP_SECRET}"]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a ${APP_SECRET} ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+volumes:
+  postgres:

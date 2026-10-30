@@ -1,0 +1,12 @@
+{
+  "added": "2026-10-30",
+  "name": "Mosquitto",
+  "tagline": "MQTT-Broker fürs Smart Home",
+  "category": "Smart Home",
+  "port": 1883,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mosquitto.png",
+  "website": "https://mosquitto.org",
+  "connectHint": "Trage diese Adresse in Home Assistant, ESPHome oder Node-RED als MQTT-Broker ein.",
+  "description": "Vermittelt MQTT-Nachrichten zwischen Sensoren, Schaltern und Smart-Home-Apps. Hat keine Weboberfläche und keine Anmeldung; jedes Gerät in deinem Heimnetz kann sich verbinden."
+}

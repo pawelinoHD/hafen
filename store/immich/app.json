@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Immich",
+  "tagline": "Deine eigene Fotos-Mediathek",
+  "category": "Fotos",
+  "port": 2283,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/immich.png",
+  "website": "https://immich.app",
+  "description": "Fotos und Videos wie bei Google Fotos: automatischer Upload vom Handy, Gesichter, Karte und Suche in normaler Sprache. Neue Uploads landen im Ordner „Immich“. Vorhandene Fotos aus „Fotos“ bindest du unter Verwaltung → Externe Bibliotheken mit dem Pfad /fotos ein. Braucht mindestens 6 GB freien Arbeitsspeicher; das erste Konto wird Administrator.",
+  "storageDirs": [
+    "Immich",
+    "Fotos"
+  ]
+}

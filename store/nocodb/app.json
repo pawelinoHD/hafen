@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "NocoDB",
+  "tagline": "Datenbank wie Airtable",
+  "category": "Produktivität",
+  "port": 8012,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nocodb.png",
+  "website": "https://nocodb.com",
+  "description": "Tabellen, Kanban, Galerie und Formulare – eine Datenbank, die sich wie eine Tabellenkalkulation bedient. Das erste Konto wird Administrator."
+}

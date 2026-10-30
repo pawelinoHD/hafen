@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Karakeep",
+  "tagline": "Lesezeichen mit KI-Suche",
+  "category": "Produktivität",
+  "port": 3015,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/karakeep.png",
+  "website": "https://karakeep.app",
+  "description": "Sammelt Links, Notizen und Bilder, speichert Webseiten dauerhaft und durchsucht alles im Volltext. Mit Browser-Erweiterung und Handy-Apps. Das erste Konto wird Administrator."
+}

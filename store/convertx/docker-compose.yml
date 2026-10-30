@@ -1,0 +1,13 @@
+services:
+  convertx:
+    image: ghcr.io/c4illin/convertx:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:3000"
+    environment:
+      TZ: ${TZ}
+      JWT_SECRET: ${APP_SECRET}
+      # Hafen läuft im Heimnetz ohne HTTPS
+      HTTP_ALLOWED: "true"
+    volumes:
+      - ${APP_DATA_DIR}:/app/data

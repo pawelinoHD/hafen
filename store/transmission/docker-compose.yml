@@ -1,0 +1,17 @@
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:9091"
+      - "51413:51413"
+      - "51413:51413/udp"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      USER: admin
+      PASS: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Downloads:/downloads

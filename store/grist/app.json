@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Grist",
+  "tagline": "Tabellen mit Datenbank-Kraft",
+  "category": "Produktivität",
+  "port": 8484,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grist.png",
+  "website": "https://www.getgrist.com",
+  "description": "Tabellenkalkulation mit echten Datentypen, Verknüpfungen, Python-Formeln und Diagrammen. Läuft ohne Anmeldung als Einzelnutzer – gedacht fürs Heimnetz."
+}

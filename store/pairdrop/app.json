@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "PairDrop",
+  "tagline": "AirDrop für alle Geräte",
+  "category": "Dateien",
+  "port": 3011,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pairdrop.png",
+  "website": "https://pairdrop.net",
+  "description": "Schickt Dateien und Texte direkt von Gerät zu Gerät im Heimnetz, ganz ohne Konto. Einfach auf beiden Geräten öffnen und das andere antippen. Es wird nichts auf dem Server gespeichert."
+}

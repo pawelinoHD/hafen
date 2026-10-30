@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "ConvertX",
+  "tagline": "Dateien umwandeln",
+  "category": "Werkzeuge",
+  "port": 3017,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/convertx.png",
+  "website": "https://github.com/C4illin/ConvertX",
+  "description": "Wandelt über tausend Formate ineinander um – Bilder, Videos, Audio, Dokumente, E-Books. Dateien werden nach einer Stunde automatisch gelöscht. Das erste Konto legst du beim Öffnen an."
+}

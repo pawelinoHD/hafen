@@ -1,0 +1,20 @@
+{
+  "added": "2026-10-30",
+  "name": "Transmission",
+  "tagline": "Schlanker Torrent-Client",
+  "category": "Downloads",
+  "port": 9091,
+  "extraPorts": [
+    51413
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/transmission.png",
+  "website": "https://transmissionbt.com",
+  "description": "Einfacher, sparsamer Torrent-Client mit Weboberfläche. Fertige Downloads landen im Ordner „Downloads“.",
+  "storageDirs": [
+    "Downloads"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

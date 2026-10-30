@@ -1,0 +1,31 @@
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "${APP_PORT}:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${APP_SECRET}
+      WORDPRESS_DB_NAME: wordpress
+      # Die Seite funktioniert so unter jeder Adresse des Servers
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'http://' . $$_SERVER['HTTP_HOST']);
+        define('WP_SITEURL', 'http://' . $$_SERVER['HTTP_HOST']);
+    volumes:
+      - ${APP_DATA_DIR}/html:/var/www/html
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${APP_SECRET}
+      MARIADB_ROOT_PASSWORD: ${APP_SECRET}
+    volumes:
+      - database:/var/lib/mysql
+volumes:
+  database:

@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "AnythingLLM",
+  "tagline": "Chatte mit deinen Dokumenten",
+  "category": "KI",
+  "port": 3021,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/anything-llm.png",
+  "website": "https://anythingllm.com",
+  "description": "Lädt PDFs, Texte und Webseiten in Arbeitsbereiche und beantwortet Fragen dazu. Verbindet sich mit Ollama, OpenAI, Claude und anderen Modellen."
+}

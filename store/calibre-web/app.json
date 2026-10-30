@@ -1,0 +1,17 @@
+{
+  "added": "2026-10-30",
+  "name": "Calibre-Web",
+  "tagline": "E-Book-Bibliothek im Browser",
+  "category": "Lesen",
+  "port": 8084,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/calibre-web.png",
+  "website": "https://github.com/janeczku/calibre-web",
+  "description": "Liest, verwaltet und verschickt E-Books aus einer Calibre-Bibliothek. Lege deine Bibliothek samt metadata.db in „Bücher“ und wähle beim ersten Start den Ordner /books. Ändere danach sofort das Standardpasswort.",
+  "storageDirs": [
+    "Bücher"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "admin123"
+  }
+}

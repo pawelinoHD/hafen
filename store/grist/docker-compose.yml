@@ -1,0 +1,11 @@
+services:
+  grist:
+    image: gristlabs/grist:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8484"
+    environment:
+      GRIST_SESSION_SECRET: ${APP_SECRET}
+      GRIST_DEFAULT_EMAIL: hafen@example.com
+    volumes:
+      - ${APP_DATA_DIR}:/persist

@@ -1,0 +1,11 @@
+services:
+  komga:
+    image: gotson/komga:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:25600"
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Bücher/Comics:/data

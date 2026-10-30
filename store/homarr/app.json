@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Homarr",
+  "tagline": "Dashboard für deine Dienste",
+  "category": "Werkzeuge",
+  "port": 7575,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/homarr.png",
+  "website": "https://homarr.dev",
+  "description": "Anpassbare Startseite mit Widgets und Anbindung an viele Heimserver-Apps. Das erste Konto legst du beim Öffnen an."
+}

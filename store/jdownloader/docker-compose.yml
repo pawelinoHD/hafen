@@ -1,0 +1,13 @@
+services:
+  jdownloader:
+    image: jlesage/jdownloader-2:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5800"
+    environment:
+      TZ: ${TZ}
+      USER_ID: ${PUID}
+      GROUP_ID: ${PGID}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Downloads/JDownloader:/output

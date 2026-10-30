@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Ghostfolio",
+  "tagline": "Dein Depot im Blick",
+  "category": "Finanzen",
+  "port": 3333,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ghostfolio.png",
+  "website": "https://ghostfol.io",
+  "description": "Behält Aktien, ETFs und Krypto an einem Ort im Blick: Performance, Dividenden, Aufteilung. Das erste Konto wird Administrator; merke dir das angezeigte Sicherheits-Token, es ist deine Anmeldung."
+}

@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "WordPress",
+  "tagline": "Website oder Blog",
+  "category": "Produktivität",
+  "port": 8022,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/wordpress.png",
+  "website": "https://wordpress.org",
+  "description": "Das bekannteste System für Webseiten und Blogs, mit Tausenden Themes und Plugins. Beim ersten Öffnen legst du Titel und Administrator-Konto an."
+}

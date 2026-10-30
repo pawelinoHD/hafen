@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "HedgeDoc",
+  "tagline": "Markdown gemeinsam schreiben",
+  "category": "Produktivität",
+  "port": 3012,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/hedgedoc.png",
+  "website": "https://hedgedoc.org",
+  "description": "Markdown-Notizen, an denen mehrere Leute gleichzeitig schreiben – mit Live-Vorschau, Diagrammen und Präsentationsmodus. Teile einfach den Link zur Notiz."
+}

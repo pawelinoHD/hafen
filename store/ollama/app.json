@@ -1,0 +1,12 @@
+{
+  "added": "2026-10-30",
+  "name": "Ollama",
+  "tagline": "Sprachmodelle direkt auf dem Server",
+  "category": "KI",
+  "port": 11434,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/ollama.png",
+  "website": "https://ollama.com",
+  "connectHint": "Trage diese Adresse in Open WebUI, AnythingLLM oder im Hafen-Assistenten als Ollama-Server ein.",
+  "description": "Führt offene Sprachmodelle aus und bietet sie anderen Apps an. Hat keine Weboberfläche; bedient wird es über Apps wie Open WebUI. Wichtig: In Docker auf dem Mac gibt es keine GPU, die Modelle laufen nur auf der CPU. Nimm also kleine Modelle."
+}

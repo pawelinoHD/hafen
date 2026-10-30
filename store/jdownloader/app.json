@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "JDownloader 2",
+  "tagline": "Download-Manager im Browser",
+  "category": "Downloads",
+  "port": 5800,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jdownloader.png",
+  "website": "https://jdownloader.org",
+  "description": "Der bekannte Download-Manager für Sharehoster, im Browser bedient. Fertige Dateien landen in „Downloads/JDownloader“.",
+  "storageDirs": [
+    "Downloads/JDownloader"
+  ]
+}

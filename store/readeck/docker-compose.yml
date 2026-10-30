@@ -1,0 +1,13 @@
+services:
+  readeck:
+    image: codeberg.org/readeck/readeck:latest
+    restart: unless-stopped
+    # Die Datenordner gehören unter Colima root; als root läuft das Image zuverlässig
+    user: "0:0"
+    ports:
+      - "${APP_PORT}:8000"
+    environment:
+      READECK_SERVER_HOST: 0.0.0.0
+      READECK_SERVER_PORT: "8000"
+    volumes:
+      - ${APP_DATA_DIR}:/readeck

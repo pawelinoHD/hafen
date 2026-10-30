@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Readeck",
+  "tagline": "Artikel für später",
+  "category": "Lesen",
+  "port": 8021,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/readeck.png",
+  "website": "https://readeck.org",
+  "description": "Speichert Webseiten als saubere Lesefassung samt Bildern, mit Markierungen und Sammlungen. Das erste Konto legst du beim Öffnen an."
+}

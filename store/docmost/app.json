@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Docmost",
+  "tagline": "Wiki wie Notion oder Confluence",
+  "category": "Produktivität",
+  "port": 3014,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/docmost.png",
+  "website": "https://docmost.com",
+  "description": "Kollaboratives Wiki mit Bereichen, Berechtigungen, Kommentaren und Echtzeit-Bearbeitung. Den Arbeitsbereich und das erste Konto legst du beim Öffnen an."
+}

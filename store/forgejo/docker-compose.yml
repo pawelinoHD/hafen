@@ -1,0 +1,14 @@
+services:
+  forgejo:
+    image: codeberg.org/forgejo/forgejo:11
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:3000"
+      - "2223:22"
+    environment:
+      USER_UID: ${PUID}
+      USER_GID: ${PGID}
+      FORGEJO__server__ROOT_URL: ${APP_URL}/
+      FORGEJO__server__SSH_PORT: "2223"
+    volumes:
+      - ${APP_DATA_DIR}:/data

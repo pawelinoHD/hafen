@@ -1,0 +1,14 @@
+services:
+  anythingllm:
+    image: mintplexlabs/anythingllm:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:3001"
+    environment:
+      TZ: ${TZ}
+      STORAGE_DIR: /app/server/storage
+      JWT_SECRET: ${APP_SECRET}
+    volumes:
+      - storage:/app/server/storage
+volumes:
+  storage:

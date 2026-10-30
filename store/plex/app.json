@@ -1,0 +1,25 @@
+{
+  "added": "2026-10-30",
+  "name": "Plex",
+  "tagline": "Filme & Serien mit Plex-Konto",
+  "category": "Medien",
+  "port": 32400,
+  "path": "/web",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/plex.png",
+  "website": "https://www.plex.tv",
+  "description": "Bekannter Medienserver mit Apps für Fernseher, Konsolen und Handys. Liest deine Filme, Serien und Musik aus „Medien“ (im Container unter /media). Braucht ein kostenloses Plex-Konto.",
+  "storageDirs": [
+    "Medien/Filme",
+    "Medien/Serien"
+  ],
+  "settings": [
+    {
+      "key": "PLEX_CLAIM",
+      "label": "Claim-Code",
+      "required": true,
+      "secret": true,
+      "placeholder": "claim-…",
+      "help": "Hol ihn dir direkt vor der Installation auf plex.tv/claim. Er gilt nur vier Minuten und verbindet den Server mit deinem Konto."
+    }
+  ]
+}

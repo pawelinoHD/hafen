@@ -1,0 +1,18 @@
+{
+  "added": "2026-10-30",
+  "name": "Owncast",
+  "tagline": "Dein eigener Livestream",
+  "category": "Medien",
+  "port": 8083,
+  "path": "/admin",
+  "extraPorts": [
+    1935
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/owncast.png",
+  "website": "https://owncast.online",
+  "description": "Twitch zum Selbsthosten: Streame aus OBS an deinen Server, die Zuschauer schauen im Browser und chatten mit. In OBS trägst du rtmp://<Adresse deines Servers>:1935/live ein, den Stream-Schlüssel legst du in der Verwaltung fest. Ändere dort als Erstes das Passwort.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "abc123"
+  }
+}

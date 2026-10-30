@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "Forgejo",
+  "tagline": "Git-Server der Gemeinschaft",
+  "category": "Entwicklung",
+  "port": 3018,
+  "extraPorts": [
+    2223
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/forgejo.png",
+  "website": "https://forgejo.org",
+  "description": "Gemeinnützig verwalteter Git-Server mit Pull Requests, Tickets und CI – eine Abspaltung von Gitea. Git per SSH läuft über Port 2223. Bei der Ersteinrichtung legst du das Administrator-Konto an."
+}

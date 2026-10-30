@@ -1,0 +1,9 @@
+services:
+  owncast:
+    image: owncast/owncast:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8080"
+      - "1935:1935"
+    volumes:
+      - ${APP_DATA_DIR}:/app/data

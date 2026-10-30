@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Grafana",
+  "tagline": "Dashboards für Messwerte",
+  "category": "Entwicklung",
+  "port": 3019,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/grafana.png",
+  "website": "https://grafana.com",
+  "description": "Baut Diagramme und Dashboards aus Datenquellen wie Prometheus, InfluxDB, PostgreSQL oder Home Assistant.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

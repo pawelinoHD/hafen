@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "Komga",
+  "tagline": "Comics & Manga",
+  "category": "Lesen",
+  "port": 25600,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/komga.png",
+  "website": "https://komga.org",
+  "description": "Medienserver für Comics, Manga und Bücher mit Leser im Browser und Fortschritts-Sync. Lege die Dateien in „Bücher/Comics“ und füge in Komga die Bibliothek /data hinzu.",
+  "storageDirs": [
+    "Bücher/Comics"
+  ]
+}

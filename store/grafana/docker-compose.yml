@@ -1,0 +1,14 @@
+services:
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    # Die Datenordner gehören unter Colima root, das Image läuft sonst als UID 472
+    user: "0:0"
+    ports:
+      - "${APP_PORT}:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${APP_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - ${APP_DATA_DIR}:/var/lib/grafana

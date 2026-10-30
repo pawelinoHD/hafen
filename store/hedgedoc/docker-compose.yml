@@ -1,0 +1,31 @@
+services:
+  hedgedoc:
+    image: quay.io/hedgedoc/hedgedoc:1.10.3
+    restart: unless-stopped
+    depends_on:
+      - database
+    ports:
+      # HedgeDoc baut Links aus dem eigenen Port, deshalb außen und innen gleich
+      - "${APP_PORT}:${APP_PORT}"
+    environment:
+      CMD_DB_URL: postgres://hedgedoc:${APP_SECRET}@database:5432/hedgedoc
+      CMD_DOMAIN: ${APP_HOST}
+      CMD_ALLOW_ORIGIN: ${HAFEN_HOSTS_CSV}
+      CMD_PORT: ${APP_PORT}
+      CMD_URL_ADDPORT: "true"
+      CMD_PROTOCOL_USESSL: "false"
+      CMD_SESSION_SECRET: ${APP_SECRET}
+    volumes:
+      - uploads:/hedgedoc/public/uploads
+  database:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hedgedoc
+      POSTGRES_USER: hedgedoc
+      POSTGRES_PASSWORD: ${APP_SECRET}
+    volumes:
+      - database:/var/lib/postgresql/data
+volumes:
+  uploads:
+  database:

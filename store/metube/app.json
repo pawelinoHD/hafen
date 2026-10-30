@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "MeTube",
+  "tagline": "Videos aus dem Netz speichern",
+  "category": "Downloads",
+  "port": 8099,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/metube.png",
+  "website": "https://github.com/alexta69/metube",
+  "description": "Weboberfläche für yt-dlp: Link einfügen, Qualität wählen, fertig. Unterstützt YouTube und viele andere Seiten. Die Dateien landen in „Downloads/Videos“.",
+  "storageDirs": [
+    "Downloads/Videos"
+  ]
+}

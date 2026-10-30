@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "Mailpit",
+  "tagline": "Test-Postfach für Entwickler",
+  "category": "Entwicklung",
+  "port": 8025,
+  "extraPorts": [
+    1025
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mailpit.png",
+  "website": "https://mailpit.axllent.org",
+  "description": "Fängt E-Mails aus deinen Apps ab und zeigt sie im Browser, statt sie zu verschicken. Trage in der App als SMTP-Server die Adresse deines Servers mit Port 1025 ein."
+}
