@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "PrivateBin",
+  "tagline": "Verschlüsselte Texte teilen",
+  "category": "Sicherheit",
+  "port": 8113,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/privatebin.png",
+  "website": "https://privatebin.info",
+  "description": "Teilt Texte per Link, die im Browser verschlüsselt werden und sich auf Wunsch nach dem Lesen selbst löschen. Der Server sieht nie den Inhalt."
+}

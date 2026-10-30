@@ -1,0 +1,33 @@
+services:
+  web:
+    image: vabene1111/recipes:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "${APP_PORT}:80"
+    environment:
+      TZ: ${TZ}
+      SECRET_KEY: ${APP_SECRET}
+      ALLOWED_HOSTS: "*"
+      DB_ENGINE: django.db.backends.postgresql
+      POSTGRES_HOST: db
+      POSTGRES_DB: tandoor
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: tandoor
+      POSTGRES_PASSWORD: ${APP_SECRET}
+    volumes:
+      - staticfiles:/opt/recipes/staticfiles
+      - ${APP_DATA_DIR}/mediafiles:/opt/recipes/mediafiles
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tandoor
+      POSTGRES_USER: tandoor
+      POSTGRES_PASSWORD: ${APP_SECRET}
+    volumes:
+      - database:/var/lib/postgresql/data
+volumes:
+  staticfiles:
+  database:

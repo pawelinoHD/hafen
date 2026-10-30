@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "Jackett",
+  "tagline": "Indexer für Sonarr & Co.",
+  "category": "Downloads",
+  "port": 9117,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jackett.png",
+  "website": "https://github.com/Jackett/Jackett",
+  "description": "Übersetzt Anfragen von Sonarr, Radarr und anderen in Abfragen an viele Indexer. Eine Alternative zu Prowlarr, wenn du dort einen Indexer vermisst.",
+  "storageDirs": [
+    "Downloads"
+  ]
+}

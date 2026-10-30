@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "ByteStash",
+  "tagline": "Code-Schnipsel sammeln",
+  "category": "Entwicklung",
+  "port": 3025,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bytestash.png",
+  "website": "https://github.com/jordan-dalby/ByteStash",
+  "description": "Speichert und sortiert Code-Schnipsel mit Syntaxfarben, Suche und Teilen per Link. Das erste Konto legst du beim Öffnen an."
+}

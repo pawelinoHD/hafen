@@ -1,0 +1,11 @@
+{
+  "added": "2026-10-30",
+  "name": "Whisper",
+  "tagline": "Sprache in Text umwandeln",
+  "category": "KI",
+  "port": 9004,
+  "path": "/docs",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openai.png",
+  "website": "https://github.com/ahmetoner/whisper-asr-webservice",
+  "description": "Schreibt Audio und Videos mit dem Whisper-Modell mit und bietet das anderen Apps als Dienst an. Im Browser testest du es direkt auf der Doku-Seite. Läuft nur auf der CPU, das Modell „base“ wird beim ersten Start geladen."
+}

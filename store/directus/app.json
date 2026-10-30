@@ -1,0 +1,15 @@
+{
+  "added": "2026-10-30",
+  "name": "Directus",
+  "tagline": "Headless CMS für deine Daten",
+  "category": "Entwicklung",
+  "port": 8055,
+  "path": "/admin",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/directus.png",
+  "website": "https://directus.io",
+  "description": "Macht aus Datenbanken eine Verwaltungsoberfläche mit REST- und GraphQL-Schnittstelle. Läuft hier mit SQLite.",
+  "credentials": {
+    "E-Mail": "admin@example.com",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

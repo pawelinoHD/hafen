@@ -1,0 +1,14 @@
+services:
+  slskd:
+    image: slskd/slskd:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5030"
+      - "50300:50300"
+    environment:
+      SLSKD_USERNAME: admin
+      SLSKD_PASSWORD: ${APP_PASSWORD}
+      SLSKD_REMOTE_CONFIGURATION: "true"
+    volumes:
+      - ${APP_DATA_DIR}:/app
+      - ${HAFEN_STORAGE}/Musik/Soulseek:/app/downloads

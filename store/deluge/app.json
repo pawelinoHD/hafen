@@ -1,0 +1,16 @@
+{
+  "added": "2026-10-30",
+  "name": "Deluge",
+  "tagline": "Torrents mit Plugins",
+  "category": "Downloads",
+  "port": 8112,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/deluge.png",
+  "website": "https://deluge-torrent.org",
+  "description": "Vielseitiger Torrent-Client mit Plugins und Weboberfläche. Downloads landen in „Downloads“. Ändere nach der ersten Anmeldung das Passwort.",
+  "storageDirs": [
+    "Downloads"
+  ],
+  "credentials": {
+    "Passwort": "deluge"
+  }
+}

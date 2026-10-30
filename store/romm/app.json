@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "RomM",
+  "tagline": "Deine Retro-Spielesammlung",
+  "category": "Spiele",
+  "port": 8115,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/romm.png",
+  "website": "https://romm.app",
+  "description": "Verwaltet ROMs mit Covern und Metadaten und spielt viele direkt im Browser. Lege deine Spiele nach Plattform sortiert in „Spiele/roms“ ab, zum Beispiel „Spiele/roms/gba“. Das erste Konto legst du beim Öffnen an.",
+  "storageDirs": [
+    "Spiele/roms"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Prometheus",
+  "tagline": "Metriken einsammeln",
+  "category": "Entwicklung",
+  "port": 9094,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/prometheus.png",
+  "website": "https://prometheus.io",
+  "description": "Fragt Metriken deiner Dienste regelmäßig ab und speichert sie. Ausgeliefert ist nur die Selbstüberwachung; weitere Ziele trägst du in der Datei prometheus.yml im App-Ordner ein. Passt zu Grafana."
+}

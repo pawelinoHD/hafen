@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Keycloak",
+  "tagline": "Eine Anmeldung für alle Apps",
+  "category": "Sicherheit",
+  "port": 8114,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/keycloak.png",
+  "website": "https://www.keycloak.org",
+  "description": "Zentrale Anmeldung (SSO) für alle Apps, die OpenID Connect oder SAML sprechen. Läuft im Entwicklungsmodus, gedacht fürs Heimnetz und nicht fürs offene Internet.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

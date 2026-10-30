@@ -1,0 +1,12 @@
+services:
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8181"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/config

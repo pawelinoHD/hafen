@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "KitchenOwl",
+  "tagline": "Einkaufsliste für den Haushalt",
+  "category": "Zuhause",
+  "port": 8111,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kitchenowl.png",
+  "website": "https://kitchenowl.org",
+  "description": "Gemeinsame Einkaufsliste mit Rezepten, Essensplan und Ausgaben, mit Apps für iOS und Android. Das erste Konto legst du beim Öffnen an."
+}

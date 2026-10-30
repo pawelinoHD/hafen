@@ -1,0 +1,12 @@
+{
+  "added": "2026-10-30",
+  "name": "Factorio-Server",
+  "tagline": "Fabrik bauen mit Freunden",
+  "category": "Spiele",
+  "port": 34197,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/factorio.png",
+  "website": "https://www.factorio.com",
+  "connectHint": "In Factorio: Mehrspieler → Über IP-Adresse verbinden → diese Adresse eintragen.",
+  "description": "Dedizierter Server für Factorio; die Welt wird beim ersten Start angelegt. Das Spiel selbst braucht jede Person als eigene Kopie. Läuft über UDP. Das ist unter Colima noch nicht erprobt und kann bei Verbindungsproblemen die Ursache sein."
+}

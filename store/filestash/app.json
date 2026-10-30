@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Filestash",
+  "tagline": "Datei-Browser für alle Speicher",
+  "category": "Dateien",
+  "port": 8334,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/filestash.png",
+  "website": "https://www.filestash.app",
+  "description": "Eine Oberfläche für SFTP, S3, WebDAV, FTP und mehr, mit Vorschau für Fotos, Videos und Dokumente. Beim ersten Öffnen legst du das Admin-Passwort fest."
+}

@@ -1,0 +1,17 @@
+{
+  "added": "2026-10-30",
+  "name": "Flatnotes",
+  "tagline": "Einfache Markdown-Notizen",
+  "category": "Produktivität",
+  "port": 3023,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flatnotes.png",
+  "website": "https://github.com/dullage/flatnotes",
+  "description": "Notizen ohne Ordner und Datenbank: nur Markdown-Dateien in „Notizen/Flatnotes“ und eine schnelle Suche.",
+  "storageDirs": [
+    "Notizen/Flatnotes"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

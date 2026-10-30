@@ -1,0 +1,9 @@
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8191"
+    environment:
+      TZ: ${TZ}
+      LOG_LEVEL: info

@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Joplin Server",
+  "tagline": "Sync für deine Joplin-Notizen",
+  "category": "Produktivität",
+  "port": 22300,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/joplin.png",
+  "website": "https://joplinapp.org",
+  "description": "Synchronisiert die Notiz-App Joplin zwischen deinen Geräten über deinen eigenen Server. Ändere nach der ersten Anmeldung E-Mail und Passwort.",
+  "credentials": {
+    "E-Mail": "admin@localhost",
+    "Passwort": "admin"
+  }
+}

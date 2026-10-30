@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "LubeLogger",
+  "tagline": "Fahrtenbuch fürs Auto",
+  "category": "Zuhause",
+  "port": 8110,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lubelogger.png",
+  "website": "https://lubelogger.com",
+  "description": "Hält Wartung, Reparaturen, Tankstopps und Kosten deiner Fahrzeuge fest und erinnert an fällige Termine."
+}

@@ -1,0 +1,18 @@
+{
+  "added": "2026-10-30",
+  "name": "SFTPGo",
+  "tagline": "SFTP- und WebDAV-Server",
+  "category": "Dateien",
+  "port": 8106,
+  "path": "/web/admin",
+  "extraPorts": [
+    2022
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/sftpgo.png",
+  "website": "https://sftpgo.com",
+  "description": "Stellt deinen Speicher per SFTP (Port 2022) bereit, mit eigenen Konten und Rechten je Benutzer. Der Hafen-Speicher liegt im Container unter /srv/sftpgo.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

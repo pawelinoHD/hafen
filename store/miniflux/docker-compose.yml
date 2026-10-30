@@ -1,0 +1,31 @@
+services:
+  miniflux:
+    image: miniflux/miniflux:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${APP_PORT}:8080"
+    environment:
+      DATABASE_URL: postgres://miniflux:${APP_SECRET}@db/miniflux?sslmode=disable
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: ${APP_PASSWORD}
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: miniflux
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: ${APP_SECRET}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d miniflux -U miniflux"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    volumes:
+      - database:/var/lib/postgresql/data
+volumes:
+  database:

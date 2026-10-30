@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Verdaccio",
+  "tagline": "Eigene npm-Registry",
+  "category": "Entwicklung",
+  "port": 4873,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/verdaccio.png",
+  "website": "https://verdaccio.org",
+  "description": "Private npm-Registry im Heimnetz: speichert Pakete zwischen und nimmt deine eigenen auf. Konten legst du mit npm adduser an."
+}

@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Tautulli",
+  "tagline": "Statistiken für Plex",
+  "category": "Medien",
+  "port": 8102,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tautulli.png",
+  "website": "https://tautulli.com",
+  "description": "Zeigt, wer was auf deinem Plex-Server schaut, mit Verlauf, Statistiken und Benachrichtigungen. Verbinde es bei der Einrichtung mit deinem Plex-Konto."
+}

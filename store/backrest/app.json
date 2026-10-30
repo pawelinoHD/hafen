@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "Backrest",
+  "tagline": "Verschlüsselte Backups mit restic",
+  "category": "Dateien",
+  "port": 9898,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/backrest.png",
+  "website": "https://garethgeorge.github.io/backrest",
+  "description": "Weboberfläche für restic: geplante, verschlüsselte und inkrementelle Backups, auch in die Cloud. Dein Hafen-Speicher ist als /hafen eingebunden (nur lesend), lokale Ziele legst du unter /backups an.",
+  "storageDirs": [
+    "Backups"
+  ]
+}

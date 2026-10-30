@@ -1,0 +1,17 @@
+services:
+  backrest:
+    image: garethgeorge/backrest:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:9898"
+    environment:
+      TZ: ${TZ}
+      BACKREST_DATA: /data
+      BACKREST_CONFIG: /config/config.json
+      XDG_CACHE_HOME: /cache
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/config:/config
+      - ${APP_DATA_DIR}/cache:/cache
+      - ${HAFEN_STORAGE}:/hafen:ro
+      - ${HAFEN_STORAGE}/Backups:/backups

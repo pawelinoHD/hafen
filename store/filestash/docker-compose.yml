@@ -1,0 +1,10 @@
+services:
+  filestash:
+    image: machines/filestash:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8334"
+    volumes:
+      - state:/app/data/state
+volumes:
+  state:

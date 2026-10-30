@@ -1,0 +1,15 @@
+services:
+  pigallery2:
+    image: bpatrik/pigallery2:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:80"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ${APP_DATA_DIR}/config:/app/data/config
+      - ${APP_DATA_DIR}/db:/app/data/db
+      - ${HAFEN_STORAGE}/Fotos:/app/data/images:ro
+      - tmp:/app/data/tmp
+volumes:
+  tmp:

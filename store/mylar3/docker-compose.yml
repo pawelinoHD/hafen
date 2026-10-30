@@ -1,0 +1,14 @@
+services:
+  mylar3:
+    image: lscr.io/linuxserver/mylar3:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8090"
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    volumes:
+      - ${APP_DATA_DIR}:/config
+      - ${HAFEN_STORAGE}/Bücher/Comics:/comics
+      - ${HAFEN_STORAGE}/Downloads:/downloads

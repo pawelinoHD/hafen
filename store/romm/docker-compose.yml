@@ -1,0 +1,42 @@
+services:
+  romm:
+    image: rommapp/romm:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${APP_PORT}:8080"
+    environment:
+      DB_HOST: db
+      DB_NAME: romm
+      DB_USER: romm
+      DB_PASSWD: ${APP_SECRET}
+      ROMM_AUTH_SECRET_KEY: ${APP_SECRET}
+      HASHEOUS_API_ENABLED: "true"
+    volumes:
+      - resources:/romm/resources
+      - redis:/redis-data
+      - ${HAFEN_STORAGE}/Spiele:/romm/library
+      - ${APP_DATA_DIR}/assets:/romm/assets
+      - ${APP_DATA_DIR}/config:/romm/config
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${APP_SECRET}
+      MARIADB_DATABASE: romm
+      MARIADB_USER: romm
+      MARIADB_PASSWORD: ${APP_SECRET}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 30s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - database:/var/lib/mysql
+volumes:
+  resources:
+  redis:
+  database:

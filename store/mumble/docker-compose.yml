@@ -1,0 +1,13 @@
+services:
+  mumble:
+    image: mumblevoip/mumble-server:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:64738"
+      - "${APP_PORT}:64738/udp"
+    environment:
+      MUMBLE_SUPERUSER_PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - data:/data
+volumes:
+  data:

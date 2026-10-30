@@ -1,0 +1,10 @@
+services:
+  silverbullet:
+    image: ghcr.io/silverbulletmd/silverbullet:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:3000"
+    environment:
+      SB_USER: admin:${APP_PASSWORD}
+    volumes:
+      - ${HAFEN_STORAGE}/Notizen/SilverBullet:/space

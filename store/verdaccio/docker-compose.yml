@@ -1,0 +1,10 @@
+services:
+  verdaccio:
+    image: verdaccio/verdaccio:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:4873"
+    volumes:
+      - storage:/verdaccio/storage
+volumes:
+  storage:

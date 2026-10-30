@@ -1,0 +1,21 @@
+services:
+  directus:
+    image: directus/directus:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8055"
+    environment:
+      SECRET: ${APP_SECRET}
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD: ${APP_PASSWORD}
+      DB_CLIENT: sqlite3
+      DB_FILENAME: /directus/database/data.db
+      PUBLIC_URL: ${APP_URL}
+    volumes:
+      - database:/directus/database
+      - uploads:/directus/uploads
+      - extensions:/directus/extensions
+volumes:
+  database:
+  uploads:
+  extensions:

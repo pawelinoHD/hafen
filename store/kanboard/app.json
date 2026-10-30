@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Kanboard",
+  "tagline": "Kanban ohne Schnickschnack",
+  "category": "Produktivität",
+  "port": 8108,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/kanboard.png",
+  "website": "https://kanboard.org",
+  "description": "Schlankes Kanban-Board für Projekte und Aufgaben. Ändere nach der ersten Anmeldung das Passwort.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "admin"
+  }
+}

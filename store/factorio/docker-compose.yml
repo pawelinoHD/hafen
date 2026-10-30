@@ -1,0 +1,9 @@
+services:
+  factorio:
+    image: factoriotools/factorio:stable
+    restart: unless-stopped
+    stop_grace_period: 30s
+    ports:
+      - "${APP_PORT}:34197/udp"
+    volumes:
+      - ${APP_DATA_DIR}:/factorio

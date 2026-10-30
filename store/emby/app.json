@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Emby",
+  "tagline": "Medienserver für die Familie",
+  "category": "Medien",
+  "port": 8101,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/emby.png",
+  "website": "https://emby.media",
+  "description": "Medienserver mit Apps für Fernseher und Handys, Benutzerkonten und Kindersicherung. Füge im Assistenten die Bibliothek /media hinzu; sie zeigt auf deinen Ordner „Medien“.",
+  "storageDirs": [
+    "Medien/Filme",
+    "Medien/Serien"
+  ]
+}

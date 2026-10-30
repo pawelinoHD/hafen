@@ -1,0 +1,8 @@
+services:
+  myspeed:
+    image: germannewsmaker/myspeed:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5216"
+    volumes:
+      - ${APP_DATA_DIR}:/myspeed/data

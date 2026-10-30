@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "InfluxDB",
+  "tagline": "Datenbank für Messwerte",
+  "category": "Entwicklung",
+  "port": 8086,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/influxdb.png",
+  "website": "https://www.influxdata.com",
+  "description": "Speichert Zeitreihen von Sensoren und Diensten, zum Beispiel aus Home Assistant. Mit Grafana baust du daraus Diagramme. Organisation und Bucket heißen „hafen“.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Miniflux",
+  "tagline": "Minimalistischer RSS-Reader",
+  "category": "Lesen",
+  "port": 8107,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/miniflux.png",
+  "website": "https://miniflux.app",
+  "description": "Schneller RSS-Reader ohne Ablenkung, mit Lesefassung und Anbindung an viele Apps.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - config:/var/www/baikal/config
+      - specific:/var/www/baikal/Specific
+volumes:
+  config:
+  specific:

@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Umami",
+  "tagline": "Webstatistik ohne Tracking-Cookies",
+  "category": "Entwicklung",
+  "port": 3024,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/umami.png",
+  "website": "https://umami.is",
+  "description": "Besucherzahlen für deine Webseiten, datenschutzfreundlich und ohne Cookies. Ändere nach der ersten Anmeldung das Passwort.",
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "umami"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "added": "2026-10-30",
+  "name": "PiGallery 2",
+  "tagline": "Schlanke Fotogalerie",
+  "category": "Fotos",
+  "port": 8105,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/pigallery2.png",
+  "website": "https://bpatrik.github.io/pigallery2",
+  "description": "Schnelle Galerie für deine Ordner in „Fotos“, ohne Upload und ohne Datenbank-Server. Sie liest nur und ändert keine Datei. Ändere nach der ersten Anmeldung das Passwort.",
+  "storageDirs": [
+    "Fotos"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "admin"
+  }
+}

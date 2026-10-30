@@ -1,0 +1,13 @@
+services:
+  etherpad:
+    image: etherpad/etherpad:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:9001"
+    environment:
+      ADMIN_PASSWORD: ${APP_PASSWORD}
+      DEFAULT_PAD_TEXT: ""
+    volumes:
+      - var:/opt/etherpad-lite/var
+volumes:
+  var:

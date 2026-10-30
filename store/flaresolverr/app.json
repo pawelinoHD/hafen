@@ -1,0 +1,12 @@
+{
+  "added": "2026-10-30",
+  "name": "FlareSolverr",
+  "tagline": "Helfer für Prowlarr & Jackett",
+  "category": "Downloads",
+  "port": 8191,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/flaresolverr.png",
+  "website": "https://github.com/FlareSolverr/FlareSolverr",
+  "connectHint": "Trage diese Adresse (mit http:// davor) in Prowlarr oder Jackett als FlareSolverr-Server ein.",
+  "description": "Beantwortet Browser-Prüfungen für Indexer, die sich sonst nicht abfragen lassen. Hat keine Weboberfläche und arbeitet im Hintergrund für Prowlarr oder Jackett."
+}

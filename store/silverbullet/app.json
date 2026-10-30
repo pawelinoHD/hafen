@@ -1,0 +1,17 @@
+{
+  "added": "2026-10-30",
+  "name": "SilverBullet",
+  "tagline": "Notizen, die programmierbar sind",
+  "category": "Produktivität",
+  "port": 3022,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/silverbullet.png",
+  "website": "https://silverbullet.md",
+  "description": "Persönliche Wissensbasis aus Markdown-Dateien, mit Verlinkungen und eigenen Abfragen. Die Notizen liegen als normale Dateien in „Notizen/SilverBullet“.",
+  "storageDirs": [
+    "Notizen/SilverBullet"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

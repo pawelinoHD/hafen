@@ -1,0 +1,16 @@
+services:
+  sftpgo:
+    image: drakkan/sftpgo:latest
+    restart: unless-stopped
+    # Die Datenordner gehören unter Colima root
+    user: "0:0"
+    ports:
+      - "${APP_PORT}:8080"
+      - "2022:2022"
+    environment:
+      SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN: "true"
+      SFTPGO_DEFAULT_ADMIN_USERNAME: admin
+      SFTPGO_DEFAULT_ADMIN_PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}:/var/lib/sftpgo
+      - ${HAFEN_STORAGE}:/srv/sftpgo

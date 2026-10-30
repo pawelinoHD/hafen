@@ -1,0 +1,13 @@
+{
+  "added": "2026-10-30",
+  "name": "Lobe Chat",
+  "tagline": "Schicke Oberfläche für KI-Chats",
+  "category": "KI",
+  "port": 3210,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lobe-chat.png",
+  "website": "https://lobehub.com",
+  "description": "Chat-Oberfläche für viele Modelle, von Ollama bis Claude. Die Einstellungen und Chats liegen im Browser. Beim ersten Öffnen fragt sie nach dem Zugangscode.",
+  "credentials": {
+    "Zugangscode": "$APP_PASSWORD"
+  }
+}

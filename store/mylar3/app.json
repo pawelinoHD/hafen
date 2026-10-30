@@ -1,0 +1,14 @@
+{
+  "added": "2026-10-30",
+  "name": "Mylar3",
+  "tagline": "Comics automatisch sammeln",
+  "category": "Downloads",
+  "port": 8104,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mylar.png",
+  "website": "https://mylarcomics.com",
+  "description": "Beobachtet deine Comic-Reihen und holt neue Ausgaben automatisch, ähnlich wie Sonarr für Serien. Passt gut zu Komga, weil beide „Bücher/Comics“ nutzen.",
+  "storageDirs": [
+    "Bücher/Comics",
+    "Downloads"
+  ]
+}

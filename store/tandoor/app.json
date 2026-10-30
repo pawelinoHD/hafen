@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "Tandoor Recipes",
+  "tagline": "Rezepte, Essensplan, Einkauf",
+  "category": "Zuhause",
+  "port": 8116,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/tandoor-recipes.png",
+  "website": "https://tandoor.dev",
+  "description": "Sammelt Rezepte, importiert sie aus dem Netz und plant Mahlzeiten samt Einkaufsliste. Das erste Konto legst du beim Öffnen an."
+}

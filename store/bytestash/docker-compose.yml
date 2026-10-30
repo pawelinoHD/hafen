@@ -1,0 +1,12 @@
+services:
+  bytestash:
+    image: ghcr.io/jordan-dalby/bytestash:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:5000"
+    environment:
+      JWT_SECRET: ${APP_SECRET}
+      TOKEN_EXPIRY: 24h
+      ALLOW_NEW_ACCOUNTS: "true"
+    volumes:
+      - ${APP_DATA_DIR}:/data/snippets

@@ -1,0 +1,16 @@
+{
+  "added": "2026-10-30",
+  "name": "Mumble",
+  "tagline": "Sprachchat mit wenig Verzögerung",
+  "category": "Netzwerk",
+  "port": 64738,
+  "web": false,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/mumble.png",
+  "website": "https://www.mumble.info",
+  "connectHint": "In der Mumble-App: Server → Hinzufügen → diese Adresse eintragen.",
+  "description": "Eigener Sprachserver für Spiele und Gruppen. Hat keine Weboberfläche: Du verbindest dich mit der Mumble-App. Als Verwalter meldest du dich mit dem Namen SuperUser an.",
+  "credentials": {
+    "Benutzer": "SuperUser",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

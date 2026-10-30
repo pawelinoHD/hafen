@@ -1,0 +1,20 @@
+{
+  "added": "2026-10-30",
+  "name": "slskd",
+  "tagline": "Soulseek im Browser",
+  "category": "Downloads",
+  "port": 5030,
+  "extraPorts": [
+    50300
+  ],
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/slskd.png",
+  "website": "https://github.com/slskd/slskd",
+  "description": "Soulseek-Client für Musik mit Weboberfläche. Die Zugangsdaten für dein Soulseek-Konto trägst du nach der Anmeldung in den Optionen ein. Downloads landen in „Musik/Soulseek“.",
+  "storageDirs": [
+    "Musik/Soulseek"
+  ],
+  "credentials": {
+    "Benutzer": "admin",
+    "Passwort": "$APP_PASSWORD"
+  }
+}

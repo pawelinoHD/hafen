@@ -1,0 +1,8 @@
+services:
+  lobe-chat:
+    image: lobehub/lobe-chat:latest
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:3210"
+    environment:
+      ACCESS_CODE: ${APP_PASSWORD}

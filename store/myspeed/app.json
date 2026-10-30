@@ -1,0 +1,10 @@
+{
+  "added": "2026-10-30",
+  "name": "MySpeed",
+  "tagline": "Internet-Tempo im Zeitverlauf",
+  "category": "Netzwerk",
+  "port": 5216,
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/myspeed.png",
+  "website": "https://myspeed.dev",
+  "description": "Misst dein Internet automatisch und zeigt Verlauf, Ausreißer und Durchschnitt."
+}
