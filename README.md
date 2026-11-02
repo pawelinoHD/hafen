@@ -21,6 +21,8 @@ Für alle, die einen Mac übrig haben, ihre Daten zurückholen wollen und keine 
 
 Hafen ist fürs Heimnetz gebaut. Stelle es nicht direkt ins offene Internet. Für unterwegs ist Tailscale der richtige Weg, das Ziel „Von unterwegs zugreifen“ führt dich hindurch.
 
+![Das Fenster „Was soll dein Hafen tun?“ mit Zielen wie Fotos sichern und Filme streamen](docs/ziele.jpg)
+
 ## So läuft Hafen
 
 | | Direkt auf macOS (empfohlen) | Als eigene VM |
@@ -30,22 +32,15 @@ Hafen ist fürs Heimnetz gebaut. Stelle es nicht direkt ins offene Internet. Fü
 | Adresse | `http://<dein-mac>.local:8420` | `http://hafen.local` |
 | Home Assistant | Geräte-Erkennung eingeschränkt | voll, Host-Netzwerk möglich |
 
-## Hafen aktualisieren
+## Installation
 
-Ab Hafen 2.1: **Einstellungen → Hafen aktualisieren** und die neue `hafen.zip` auswählen. Hafen prüft die Datei, sichert die laufende Fassung nach `~/hafen-daten/aktualisierung/vorige-fassung` und startet neu. Apps und Daten bleiben erhalten. Im selben Dialog holst du die vorige Fassung mit einem Klick zurück.
-
-Startet Hafen nach einem Update nicht mehr, hilft das Terminal:
+Du brauchst einen Mac mit Apple Silicon und [Homebrew](https://brew.sh). Dann im Terminal:
 
 ```bash
-rsync -a --delete ~/hafen-daten/aktualisierung/vorige-fassung/ ~/hafen/ && launchctl kickstart -k gui/$(id -u)/de.hafen.server
+curl -fsSL https://raw.githubusercontent.com/pawelinoHD/hafen/main/get.sh | bash
 ```
 
-## Installation auf dem Mac
-
-```bash
-cd ~/Downloads/hafen
-bash install.sh
-```
+Lieber vorher lesen, was läuft? Lade [hafen.zip](https://github.com/pawelinoHD/hafen/releases/latest) herunter, entpacke es und starte `bash install.sh`.
 
 Das Skript
 
@@ -113,3 +108,23 @@ bash ~/hafen/uninstall.sh                             # Autostart entfernen
 ```
 
 Passwort vergessen? `config.json` öffnen, den Block `"user"` löschen, Hafen neu starten. Dann richtest du Namen und Passwort neu ein, und die Apps bleiben erhalten.
+
+## Hafen aktualisieren
+
+Gibt es eine neue Fassung, meldet Hafen das. Unter **Einstellungen → Hafen aktualisieren** spielst du sie mit einem Klick ein. Hafen prüft die Prüfsumme, sichert die laufende Fassung nach `~/hafen-daten/aktualisierung/vorige-fassung` und startet neu. Apps und Daten bleiben erhalten, die vorige Fassung holst du im selben Dialog zurück.
+
+Dafür fragt Hafen alle sechs Stunden bei GitHub nach der neuesten Fassung. Dabei gehen keine Daten aus deinem Hafen raus.
+
+Startet Hafen nach einem Update nicht mehr, hilft das Terminal:
+
+```bash
+rsync -a --delete ~/hafen-daten/aktualisierung/vorige-fassung/ ~/hafen/ && launchctl kickstart -k gui/$(id -u)/de.hafen.server
+```
+
+## Stand des Projekts
+
+Hafen läuft im Alltag auf einem MacBook Air mit M1. Die neueren Funktionen und viele Store-Apps sind noch nicht auf echter Hardware erprobt; das zeigt der Prüfstand. Rechne mit Kanten und melde sie gern als [Issue](https://github.com/pawelinoHD/hafen/issues). Sichere wichtige Daten immer zusätzlich.
+
+## Lizenz
+
+Hafen steht unter der [MIT-Lizenz](LICENSE). Fremde Bestandteile stehen in [THIRD-PARTY.md](THIRD-PARTY.md).

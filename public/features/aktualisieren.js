@@ -11,6 +11,8 @@ H.css(`
 .ak-balken i { display: block; height: 100%; width: 0; background: var(--brand); transition: width .2s; }
 .ak-status { margin-top: 10px; font-size: 13px; color: var(--text-2); min-height: 1.4em; }
 .ak-zurueck { margin-top: 10px; width: 100%; }
+.ak-neu { padding: 14px; border-radius: 13px; background: rgba(19,168,178,.12); margin-bottom: 12px; font-size: 13.5px; }
+.ak-neu p { color: var(--text-2); white-space: pre-wrap; margin: 6px 0 10px; line-height: 1.5; }
 `);
 
 const laden = async () => { try { info = await api('/api/aktualisieren'); } catch {} H.update(); };
@@ -50,9 +52,10 @@ function oeffnen() {
   const balken = h('i'), status = h('p', { class: 'ak-status' });
   const setStatus = (t) => { status.textContent = t; };
   const eingabe = h('input', { type: 'file', accept: '.zip,application/zip', hidden: true, onchange: () => eingabe.files[0] && starten(eingabe.files[0]) });
-  const knopf = h('button', { class: 'btn ak-knopf', onclick: () => eingabe.click() }, 'hafen.zip auswählen …');
+  const knopf = h('button', { class: 'btn ak-knopf', onclick: () => eingabe.click() }, 'Oder hafen.zip auswählen …');
   const zurueck = h('button', { class: 'btn ghost ak-zurueck', style: 'display:none', onclick: () => zurueckholen() });
   const version = h('b', {}, info?.version || '…'), vorige = h('b', {}, '–');
+  const neuKasten = h('div', { class: 'ak-neu', style: 'display:none' });
 
   async function starten(datei, aelter = false) {
     knopf.disabled = true; zurueck.disabled = true;
@@ -71,6 +74,17 @@ function oeffnen() {
     } catch (e) {
       setStatus(''); toast(e.message, true); knopf.disabled = false; zurueck.disabled = false;
     } finally { eingabe.value = ''; }
+  }
+
+  async function online() {
+    knopf.disabled = true; zurueck.disabled = true;
+    setStatus('Wird geladen und geprüft …');
+    try {
+      const r = await api('/api/aktualisieren/online', {});
+      if (r.demo) { setStatus(`Geprüft: Hafen ${r.neue}. Im Demo-Modus wird nichts ersetzt.`); knopf.disabled = false; zurueck.disabled = false; return; }
+      setStatus(`Hafen ${r.neue} ist eingespielt und startet neu …`);
+      await aufNeustartWarten(r.aktuell, setStatus);
+    } catch (e) { setStatus(''); toast(e.message, true); knopf.disabled = false; zurueck.disabled = false; }
   }
 
   function zurueckholen() {
@@ -92,12 +106,17 @@ function oeffnen() {
     vorige.textContent = info?.vorige || '–';
     zurueck.style.display = info?.vorige ? '' : 'none';
     zurueck.textContent = `Zurück zu ${info?.vorige}`;
+    neuKasten.style.display = info?.neu ? '' : 'none';
+    if (info?.neu) neuKasten.replaceChildren(h('b', {}, `Hafen ${info.neu.version} ist da`),
+      info.neu.notizen && h('p', {}, info.neu.notizen.split('\n').slice(0, 6).join('\n')),
+      h('button', { class: 'btn', onclick: online }, 'Jetzt aktualisieren'));
   };
   zeigen();
   api('/api/aktualisieren').then((r) => { info = r; zeigen(); }).catch(() => {});
 
-  dialog('Hafen aktualisieren', 'Lade die neue hafen.zip hoch. Hafen prüft sie, sichert die laufende Fassung und startet neu. Deine Apps und Daten bleiben erhalten.', {
+  dialog('Hafen aktualisieren', 'Hafen prüft die neue Fassung, sichert die laufende und startet neu. Deine Apps und Daten bleiben erhalten.', {
     extra: h('div', {},
+      neuKasten,
       h('div', { class: 'ak-zeile' }, h('span', {}, 'Installiert'), version),
       h('div', { class: 'ak-zeile' }, h('span', {}, 'Gesicherte vorige Fassung'), vorige),
       eingabe, knopf, h('div', { class: 'ak-balken' }, balken), status, zurueck),
@@ -105,5 +124,5 @@ function oeffnen() {
 }
 
 H.addSettingsItem(() => ({ tab: 'system', ic: 'refresh', title: 'Hafen aktualisieren',
-  desc: info ? `Installiert: ${info.version}` : 'Neue Fassung per hafen.zip einspielen', onclick: oeffnen }));
+  desc: info?.neu ? `Neu: ${info.neu.version} (installiert: ${info.version})` : info ? `Installiert: ${info.version}` : 'Neue Fassung einspielen', onclick: oeffnen }));
 H.onPoll(() => { if (!info && H.state.status?.loggedIn) void laden(); });

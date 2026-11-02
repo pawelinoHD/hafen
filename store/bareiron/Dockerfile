@@ -1,4 +1,4 @@
-# Pawels erweiterte bareiron-Fassung (Sichtweite 6, gespeicherte Chunks, 32 Spieler, 64 Mobs, 4 Ticks/s)
+# Erweiterte bareiron-Fassung (Sichtweite 6, gespeicherte Chunks, 32 Spieler, 64 Mobs, 4 Ticks/s)
 # aus dem mitgelieferten Quellcode bauen – auf jeder Architektur, also auch arm64 (M1).
 # Die Registries für Minecraft 1.21.8 liegen bereits erzeugt bei, darum braucht es hier weder Java noch Mojang-Downloads.
 
