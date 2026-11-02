@@ -1519,7 +1519,7 @@ async function showRemote() {
     const urls = [`http://${r.short}:${r.port}`, `http://${r.ip}:${r.port}`];
     body = [
       h('div', { class: 'remote-ok' }, h('i', { class: 'dot running' }), h('b', {}, 'Fernzugriff ist aktiv'),
-        h('span', {}, r.peers ? `${r.peers} ${r.peers === 1 ? 'weiteres Gerät' : 'weitere Geräte'} online` : 'Noch kein anderes Gerät online')),
+        h('span', {}, r.peers === null ? 'Verbunden' : r.peers ? `${r.peers} ${r.peers === 1 ? 'weiteres Gerät' : 'weitere Geräte'} online` : 'Noch kein anderes Gerät online')),
       h('p', {}, 'Auf jedem Gerät, auf dem Tailscale mit demselben Konto läuft, öffnest du Hafen von überall mit:'),
       h('dl', { class: 'kv' }, h('dt', {}, 'Name'), h('dd', {}, copy(urls[0])), h('dt', {}, 'Adresse'), h('dd', {}, copy(urls[1]))),
       h('p', { class: 'hint' }, 'Deine Apps erreichst du genauso – nur mit ihrem eigenen Port. Apps, die nur bekannte Adressen erlauben (z. B. Nextcloud), einmal über „Aktualisieren“ neu einrichten, damit sie die Tailscale-Adresse kennen.'),

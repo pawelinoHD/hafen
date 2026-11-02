@@ -46,7 +46,17 @@ const hostName = () => bonjourName || os.hostname().replace(/\.local$/, '');
 // Tailscale läuft als normale Mac-App (oder Linux-Dienst); Hafen liest nur den Status über die CLI.
 const TAILSCALE_BINS = ['/Applications/Tailscale.app/Contents/MacOS/Tailscale', '/opt/homebrew/bin/tailscale', '/usr/local/bin/tailscale', '/usr/bin/tailscale', 'tailscale'];
 let tailscale = { installed: false, state: 'NotInstalled', checked: 0 };
+// Die Mac-App ist zugleich die CLI: Sie als Programm zu starten öffnet jedes Mal die ganze App und löst die
+// macOS-Abfrage nach fremden App-Daten aus. Adresse und Tailnet stehen auch ohne sie im System.
+async function tailscaleAmMac() {
+  const ip = Object.values(os.networkInterfaces()).flat().find((i) => i.family === 'IPv4' && /^100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\./.test(i.address))?.address || '';
+  const dnsInfo = await new Promise((resolve) => execFile('scutil', ['--dns'], { timeout: 4000 }, (err, out) => resolve(err ? '' : out)));
+  const tailnet = /search domain\[\d+\] : (\S+\.ts\.net)/.exec(dnsInfo)?.[1] || '';
+  const short = hostName().toLowerCase();
+  return tailscale = { installed: true, state: ip ? 'Running' : 'Stopped', checked: Date.now(), name: ip && tailnet ? `${short}.${tailnet}` : '', short: ip ? short : '', ip, tailnet, peers: null };
+}
 async function refreshTailscale() {
+  if (process.platform === 'darwin' && !DEMO && fs.existsSync('/Applications/Tailscale.app')) return tailscaleAmMac();
   for (const bin of TAILSCALE_BINS) {
     if (bin.startsWith('/') && !fs.existsSync(bin)) continue;
     const out = await new Promise((resolve) => execFile(bin, ['status', '--json'], { timeout: 4000 }, (err, stdout) => resolve(err && !stdout ? null : stdout)));
