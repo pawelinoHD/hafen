@@ -4,9 +4,10 @@
   "category": "Netzwerk",
   "port": 3010,
   "extraPorts": [
-    53
+    5335
   ],
   "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/adguard-home.png",
   "website": "https://adguard.com/adguard-home/overview.html",
-  "description": "Blockiert Werbung, Tracker und Schadseiten für alle Geräte im WLAN – eine Alternative zu Pi-hole (nur eines von beiden kann laufen, beide brauchen Port 53). Im Einrichtungsassistenten den Web-Port auf 3000 lassen. Danach die IP deines Macs im Router als DNS-Server eintragen."
+  "description": "Blockiert Werbung, Tracker und Schadseiten für alle Geräte im WLAN – eine Alternative zu Pi-hole (nur eines von beiden kann laufen, beide brauchen Port 53). Im Einrichtungsassistenten den Web-Port auf 3000 lassen. Danach die IP deines Macs im Router als DNS-Server eintragen.",
+  "dnsBruecke": 5335
 }

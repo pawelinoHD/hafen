@@ -1,0 +1,110 @@
+{
+  "cyberchef": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598472287
+  },
+  "docmost": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598492870
+  },
+  "excalidraw": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598548325
+  },
+  "gotify": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598563159
+  },
+  "hedgedoc": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598579317
+  },
+  "homarr": {
+    "ok": true,
+    "text": "Antwortet (HTTP 307)",
+    "version": "3.1.0",
+    "zeit": 1793598619287
+  },
+  "jackett": {
+    "ok": true,
+    "text": "Antwortet (HTTP 301)",
+    "version": "3.1.0",
+    "zeit": 1793598645993
+  },
+  "kanboard": {
+    "ok": true,
+    "text": "Antwortet (HTTP 302)",
+    "version": "3.1.0",
+    "zeit": 1793598677875
+  },
+  "mailpit": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598690132
+  },
+  "mealie": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598697934
+  },
+  "miniflux": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598765343
+  },
+  "mosquitto": {
+    "ok": true,
+    "text": "Port ist offen",
+    "version": "3.1.0",
+    "zeit": 1793598798022
+  },
+  "myspeed": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598806296
+  },
+  "nocodb": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598840835
+  },
+  "pairdrop": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598883640
+  },
+  "privatebin": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598908887
+  },
+  "umami": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793598926868
+  },
+  "vaultwarden": {
+    "ok": true,
+    "text": "Antwortet (HTTP 200)",
+    "version": "3.1.0",
+    "zeit": 1793599013400
+  }
+}

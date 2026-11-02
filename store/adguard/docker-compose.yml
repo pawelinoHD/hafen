@@ -4,8 +4,8 @@ services:
     restart: unless-stopped
     ports:
       - "${APP_PORT}:3000"
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "${DNS_PORT}:53/tcp"
+      - "${DNS_PORT}:53/udp"
     volumes:
       - ${APP_DATA_DIR}/work:/opt/adguardhome/work
       - ${APP_DATA_DIR}/conf:/opt/adguardhome/conf

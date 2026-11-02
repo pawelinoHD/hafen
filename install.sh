@@ -66,6 +66,7 @@ else
   CPUS=$(( $(sysctl -n hw.ncpu) - 2 )); (( CPUS < 2 )) && CPUS=2
   blau "Starte Colima ($CPUS Kerne, $MEM_GB GB RAM) …"
   colima start --vm-type vz --vz-rosetta --mount-type virtiofs \
+    --network-address --network-preferred-route \
     --cpu "$CPUS" --memory "$MEM_GB" --disk 100 \
     --mount "$DATA_DIR:w" || colima start
   # Colima beim Anmelden automatisch starten

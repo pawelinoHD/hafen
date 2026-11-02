@@ -123,7 +123,9 @@ rsync -a --delete ~/hafen-daten/aktualisierung/vorige-fassung/ ~/hafen/ && launc
 
 ## Stand des Projekts
 
-Hafen läuft im Alltag auf einem MacBook Air mit M1. Die neueren Funktionen und viele Store-Apps sind noch nicht auf echter Hardware erprobt; das zeigt der Prüfstand. Rechne mit Kanten und melde sie gern als [Issue](https://github.com/pawelinoHD/hafen/issues). Sichere wichtige Daten immer zusätzlich.
+Hafen läuft im Alltag auf einem MacBook Air mit M1 (8 GB) unter Colima. Dort wurden der Prüfstand, der Werbefilter und das Sichern und Zurückspielen einer echten Datenbank getestet. Geprüfte Apps stehen in [store-geprueft.json](store-geprueft.json); die übrigen Store-Apps sind noch nicht auf echter Hardware erprobt. Rechne mit Kanten und melde sie gern als [Issue](https://github.com/pawelinoHD/hafen/issues). Sichere wichtige Daten immer zusätzlich.
+
+**Bekannte Eigenheiten unter Colima:** UDP-Ports aus Containern kommen nicht auf dem Mac an. Für den Werbefilter gleicht das eine eingebaute DNS-Brücke aus; Spieleserver mit UDP wie Factorio funktionieren dort noch nicht. Neue Installationen nutzen Apples Netz. Ältere Colima-Installationen können mit Torrent-Apps das Internet aller Container verstopfen; die Gesundheit erkennt das und bietet die Umstellung an.
 
 ## Lizenz
 
