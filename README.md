@@ -1,8 +1,27 @@
 # Hafen
 
-Ein Heimserver-OS im Stil von **Umbrel** für deinen **M1-Mac**: eine Startseite mit deinen Apps, ein App Store mit Ein-Klick-Installation, ein Dateimanager, Live-Systemwerte und eine Anmeldung. Darunter läuft jede App als Docker-Container.
+**Dein eigener Server für zu Hause, für den du kein Administrator sein musst.**
 
-Umbrel selbst gibt es nicht für Apple Silicon. Hafen läuft deshalb auf zwei Arten:
+Fotos, Filme, Dateien und Passwörter liegen bei den meisten Menschen in fremden Clouds, mit monatlichen Kosten und ohne Kontrolle. Ein Heimserver löst das, ist aber bisher ein Hobby für Leute, die gern Konfigurationsdateien lesen. Hafen macht daraus etwas, das man wirklich benutzt: Du sagst, was du erreichen willst, und Hafen richtet es ein, prüft es und passt danach darauf auf.
+
+Hafen läuft auf einem Mac mit Apple Silicon, also auch dort, wo Umbrel nicht läuft.
+
+## Was Hafen für dich tut
+
+- **Ziele statt App-Listen.** „Fotos vom Handy sichern“, „Filme streamen“, „Werbung im WLAN blocken“ und mehr. Hafen prüft, ob dein Rechner das schafft, installiert die passende App, wartet, bis sie wirklich antwortet, und führt dich mit QR-Code bis aufs Handy.
+- **Gesundheit.** Alle fünf Minuten prüft Hafen, ob Docker läuft, jede App antwortet, Speicher frei ist und die letzte Sicherung aktuell ist. Hängt eine App, startet Hafen sie selbst neu. Oben links steht in einem Satz, wie es deinem Server geht.
+- **Backups, denen du trauen kannst.** Einstellungen, App-Daten, Datenbanken und auf Wunsch deine Dateien, täglich auf eine externe Festplatte. Jede Sicherung wird nach dem Schreiben auf Lesbarkeit geprüft.
+- **Prüfstand.** Hafen testet Store-Apps in echtem Docker auf deinem Rechner und zeigt im Store, was hier tatsächlich läuft.
+- **120 Apps im Store**, von Nextcloud bis Home Assistant, dazu eigene Apps per `docker run`-Befehl.
+- **Dateien, Freigabe-Links, Papierkorb, Verlauf, Mitteilungen aufs Handy und ein KI-Assistent**, der deinen Server kennt.
+
+## Für wen ist Hafen?
+
+Für alle, die einen Mac übrig haben, ihre Daten zurückholen wollen und keine Lust auf Terminal-Abende haben. Ein Mac mini ist ideal. Ein MacBook geht auch, schläft aber mit geschlossenem Deckel ein, außer ein Monitor ist angeschlossen. Hafen warnt dich vor solchen Stolpersteinen.
+
+Hafen ist fürs Heimnetz gebaut. Stelle es nicht direkt ins offene Internet. Für unterwegs ist Tailscale der richtige Weg, das Ziel „Von unterwegs zugreifen“ führt dich hindurch.
+
+## So läuft Hafen
 
 | | Direkt auf macOS (empfohlen) | Als eigene VM |
 |---|---|---|
@@ -10,16 +29,6 @@ Umbrel selbst gibt es nicht für Apple Silicon. Hafen läuft deshalb auf zwei Ar
 | Docker | Colima (oder OrbStack/Docker Desktop, falls schon da) | Debian 13 mit nativem Docker |
 | Adresse | `http://<dein-mac>.local:8420` | `http://hafen.local` |
 | Home Assistant | Geräte-Erkennung eingeschränkt | voll, Host-Netzwerk möglich |
-
-## Neu in Hafen 2.0
-
-- **Backups**: Einstellungen, App-Daten und Speicher als `.tar.gz`, nach Zeitplan und mit Aufbewahrung, Wiederherstellen per Klick
-- **Mitteilungen**: Glocke oben rechts. Meldet Installationen, abgestürzte Apps, vollen Speicher und knappen RAM, auf Wunsch als Push aufs Handy (ntfy)
-- **Eigene Apps**: im Store über „Eigene App“, per Formular oder aus einem `docker run`-Befehl
-- **Freigabe-Links**: Dateien und Ordner per Link teilen, mit Ablaufdatum, Passwort und Download-Limit
-- **Papierkorb**: Gelöschtes bleibt 30 Tage wiederherstellbar
-- **Verlauf**: CPU, RAM und Netzwerk über 1 Stunde, 24 Stunden und 7 Tage, fürs System und pro App
-- **Erweiterungen**: Neue Funktionen sind eigene Module in `lib/features/` und `public/features/`, siehe [FEATURES.md](FEATURES.md)
 
 ## Hafen aktualisieren
 
@@ -47,13 +56,11 @@ Das Skript
 
 Beim ersten Öffnen legst du Namen und Passwort fest. Danach ist Hafen von jedem Gerät im WLAN erreichbar, auch vom iPhone. Über „Zum Home-Bildschirm“ wird daraus eine App.
 
-**Wichtig:** Damit der Mac als Server taugt, darf er am Netzteil nicht schlafen: `sudo pmset -c sleep 0 disksleep 0`.
+Am Netzteil hält Hafen den Mac selbst wach, das kannst du unter **Gesundheit** ändern.
 
-## Apps im Store (18)
+## Apps im Store
 
-Jellyfin · Nextcloud · Home Assistant · Pi-hole · Vaultwarden · Uptime Kuma · Syncthing · Open WebUI · Gitea · Navidrome · Audiobookshelf · Paperless-ngx · PhotoPrism · Stirling-PDF · IT-Tools · code-server · qBittorrent · Actual Budget
-
-Alle Images gibt es für arm64. Startpasswörter erzeugt Hafen selbst und zeigt sie auf der App-Seite unter **Zugangsdaten** an.
+120 Apps in 15 Kategorien. Alle Images gibt es für arm64; das wurde bei den neueren Apps direkt an der Registry geprüft. Ob eine App auf deinem Rechner läuft, zeigt der **Prüfstand** unter Gesundheit. Startpasswörter erzeugt Hafen selbst und zeigt sie auf der App-Seite unter **Zugangsdaten** an, wo eine App das erlaubt. Sonst meldet die Gesundheit das Standardpasswort, bis du es geändert hast.
 
 **KI-Tipp für den M1:** Installiere [Ollama](https://ollama.com) direkt auf dem Mac, nicht im Container. Nur dort nutzt es die GPU (Metal). Open WebUI aus dem Store verbindet sich automatisch.
 

@@ -677,7 +677,7 @@ const featureHandlers = [];
 const featureCtx = {
   ROOT, HOME, STORAGE, DEMO, PORT, VERSION, CUSTOM_STORE,
   get config() { return config; }, saveConfig,
-  apps, events, systemInfo, hosts, hostName,
+  apps, events, systemInfo, hosts, hostName, tailscale: () => refreshTailscale(),
   httpError, readJson, send, safePath, sendInline, MEDIA_EXT,
   log: (...a) => console.log('[feature]', ...a),
 };

@@ -146,7 +146,7 @@ const WINDOWS = { files: 'Dateien', photos: 'Fotos', store: 'App Store', setting
 
 // ---------- Erweiterungen ----------
 // Module aus public/features/ melden sich über window.Hafen an (siehe FEATURES.md)
-const ext = { windows: {}, settings: [], fileMenu: [], filesSide: [], appMenu: [], usage: [], storeActions: [], overlays: [], onPoll: [], deleteHint: null };
+const ext = { windows: {}, settings: [], fileMenu: [], filesSide: [], appMenu: [], appInfo: [], usage: [], storeActions: [], overlays: [], onPoll: [], deleteHint: null };
 const dockArt = (k, size) => h('span', { class: 'ic', style: `--s:${size}px;background:none;border:0;box-shadow:none`, html: DOCK_ART[k] });
 
 // App-Icon: dunkle Kachel mit Logo (bei fehlendem Bild ein Buchstabe)
@@ -1306,6 +1306,7 @@ function viewAppDetail(id) {
         h('div', { class: 'box' }, h('h4', {}, 'Informationen'), h('dl', { class: 'kv' },
           h('dt', {}, 'Status'), h('dd', {}, app.installed || busy ? h('span', { class: 'row', style: 'justify-content:flex-end;gap:7px' }, h('i', { class: 'dot ' + dotClass(app) }), stateText(app)) : 'Nicht installiert'),
           h('dt', {}, 'Kategorie'), h('dd', {}, app.category),
+          ext.appInfo.flatMap((fn) => safeExt(() => fn(app)) || []),
           h('dt', {}, 'Port'), h('dd', {}, app.extraPorts ? `${app.port} (+ ${app.extraPorts.join(', ')})` : app.port),
           !hasWeb(app) && connectHosts().map((host, i) => {
             const addr = `${host}:${app.port}`;
@@ -1947,6 +1948,7 @@ window.Hafen = {
   addStoreAction: (a) => ext.storeActions.push(a),
   // fn() → Element, das einmal fest über der Startseite liegt (z. B. Glocke)
   addOverlay: (fn) => ext.overlays.push(fn),
+  addAppInfo: (fn) => ext.appInfo.push(fn),
   // fn() – nach jeder Abfrage (alle 1–4 s)
   onPoll: (fn) => ext.onPoll.push(fn),
   // fn(entry) → Text im Löschen-Dialog der Dateien

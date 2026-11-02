@@ -1,6 +1,6 @@
 const H = window.Hafen;
 const { h, api, toast, dialog, field, check, fmtBytes, fmtDate, relTime } = H;
-const labels = { einstellungen: 'Einstellungen', 'app-daten': 'App-Daten', speicher: 'Speicher' };
+const labels = { einstellungen: 'Einstellungen', 'app-daten': 'App-Daten', datenbanken: 'Datenbanken', speicher: 'Speicher' };
 let data = null, error = '', pending = false, timer = null, revision = 0, saving = false;
 const open = () => location.hash.split('/')[1] === 'backups';
 const lastBackup = () => data?.ergebnisse.find(e => e.art === 'Sicherung' && e.erfolg);
@@ -70,7 +70,7 @@ function form() {
   const zeit = h('input', { class: 'input', type: 'time', value: s.zeit, required: true, id: 'bk-zeit' });
   const behalten = h('input', { class: 'input', type: 'number', min: 1, max: 365, value: s.behalten, required: true, id: 'bk-behalten' });
   const aktiv = check('Täglich automatisch sichern', s.aktiv);
-  const appDaten = toggle('App-Daten sichern', s.appDaten, 'bk-appdaten');
+  const appDaten = toggle('App-Daten und Datenbanken sichern', s.appDaten, 'bk-appdaten');
   const speicher = toggle('Speicher-Ordner sichern', s.speicher, 'bk-speicher');
   const appsAnhalten = toggle('Apps während der Sicherung kurz anhalten', s.appsAnhalten, 'bk-anhalten');
   const save = h('button', { type: 'submit', class: 'btn' }, 'Einstellungen speichern');

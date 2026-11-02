@@ -41,10 +41,11 @@ Routen ohne `open: true` verlangen eine Anmeldung. Gleichnamige eingebaute Route
 | `ROOT`, `HOME`, `STORAGE`, `CUSTOM_STORE` | Programmordner, Datenordner (`~/hafen-daten`), Speicher (`HOME/storage`), Ordner für eigene Apps (`HOME/eigene-apps`) |
 | `DEMO`, `PORT`, `VERSION` | Demo-Modus, Port der Oberfläche, Hafen-Version |
 | `config`, `saveConfig()` | gemeinsame Einstellungen (`HOME/config.json`) |
-| `apps` | `list()` → alle Apps mit `{ id, name, port, category, installed, state, job, … }`; `control(id, 'start'\|'stop'\|'restart'\|'update')`; `install(id, settings)`; `uninstall(id, deleteData)`; `logs(id)`; `dockerOk` |
+| `apps` | `dockerMem()`, `volumes()`, `imagesVon(id)`, `entferneImages(id, images)`; `list()` → alle Apps mit `{ id, name, port, category, installed, state, job, … }`; `control(id, 'start'\|'stop'\|'restart'\|'update')`; `install(id, settings)`; `uninstall(id, deleteData)`; `logs(id)`; `dockerOk` |
 | `events` | `EventEmitter`. **`'job'`**: `{ id, name, action, error }` nach jeder App-Aktion. **`'notify'`**: `{ level: 'info'\|'ok'\|'warn'\|'error', title, text, app? }` – jede Erweiterung darf so eine Mitteilung auslösen |
 | `systemInfo()` | `{ cpu, cores, mem: {total, used}, disk: {total, used}, net: {rx, tx} \| null, uptime, apps: { id: {cpu, mem} } }` |
 | `hosts()`, `hostName()` | Adressen, unter denen Hafen erreichbar ist |
+| `tailscale()` | aktueller Tailscale-Zustand `{ state, short, … }` |
 | `httpError(status, text)` | Fehler mit HTTP-Status werfen |
 | `readJson(req)` | JSON-Körper lesen (max. 1 MB, verlangt `Content-Type: application/json`) |
 | `send(res, status, body, headers?)` | Antwort senden (Objekt → JSON, Text → text/plain) |
@@ -97,6 +98,7 @@ Hafen.addSettingsItem((sys) => ({ tab: 'system', ic: 'info', title: 'Beispiel', 
 | `addAppMenuItem(fn(app))` | Punkt im Menü einer App: `{ label, fn, danger? }` oder `null` |
 | `addUsageSection(fn(sys))` | Element unter der App-Liste in „Live-Nutzung“ |
 | `addStoreAction({ label, icon?(), onClick })` | Knopf oben im App Store |
+| `addAppInfo(fn(app))` | Weitere `dt`/`dd`-Elemente im Kasten „Informationen“ einer App |
 | `addOverlay(fn)` | Element, das einmal fest über der Startseite liegt (z. B. eine Glocke). `fn` wird bei jedem Aufbau der Oberfläche aufgerufen |
 | `onPoll(fn)` | nach jeder Abfrage (alle 1–4 s) – für teure Abfragen selbst drosseln |
 | `setDeleteHint(fn(eintrag))` | Text im Löschen-Dialog von „Dateien“ |
